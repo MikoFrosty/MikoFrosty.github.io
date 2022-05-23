@@ -1,13 +1,9 @@
 {
-  "dependencies": {
-    "lodash-es": "^4.17.21"
-  },
   "type": "module",
   "name": "mikofrosty.github.io",
   "description": "Portfolio site for Brandon Mikowski",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
