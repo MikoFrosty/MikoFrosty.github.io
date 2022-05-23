@@ -1,43 +1,102 @@
 /* Main Elements */
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 
-    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 body {
-    background-color: #fafafa;
+  background-color: #fafafa;
 }
 
 main {
-    display: block;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 section {
-    max-width: 1300px;
+  max-width: 1300px;
 }
 
+#space {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../images/space.png");
+  background-size: auto;
+  background-position: center;
+  position: relative;
+}
+
+#space .space-grid-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  flex-wrap: no-wrap;
+  overflow: hidden;
+  margin-bottom: 0px;
+  background-color: rgb(0, 0, 0);
+  transition: 2s background-color 1s;
+  transform-style: preserve-3d;
+}
+#space .space-grid-container .space-grid-square {
+  position: relative;
+  flex: 1 0 300px;
+  height: auto;
+  top: 0;
+  left: 0px;
+  background-color: rgb(59, 59, 59);
+  z-index: 20;
+  opacity: 0;
+  /*box-shadow: 20px 20px 10px rgba(0,0,0,1);*/
+  border: 1px solid rgb(0, 0, 0, 0.5);
+  transition: 4s ease-out margin 4s, 2s ease-out opacity 0s,
+    2s ease-out transform 2s;
+}
+.space-grid-square:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+  background-image: linear-gradient(45deg, #ffffff, #bbbbbb);
+  opacity: 0;
+  transition: 2s opacity 2s;
+}
+.break-apart {
+  margin-right: 100px;
+}
+
+#skills {
+  height: 100vh;
+  width: 100%;
+  background-color: blue;
+}
 /* Header */
 header {
-
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  z-index: 999;
+  transition: 0.5s;
 }
 
 /* Media Queries */
 
 @media only screen and (max-width: 600px) {
-    
 }
 
 @media only screen and (max-width: 1000px) {
-    
 }
