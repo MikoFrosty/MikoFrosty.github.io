@@ -8,9 +8,16 @@ const $$ = document.querySelectorAll.bind(document);
 $$(".space-grid-container").forEach((element) => {
   element.style.backgroundColor = "transparent";
 });
-$("#overlay").style.opacity = "0.4";
+//$("#overlay").style.opacity = "0.4";
+const intro = $("#intro-box");
+intro.style.opacity = "1";
+intro.style.transform = "perspective(500px) translateZ(-100px) rotateY(0deg) translate(0px)";
 
-animateSquares();
+setTimeout(() => {
+    $("#overlay").style.opacity = "0.7";
+    animateSquares();
+}, 1500);
+//animateSquares();
 scrollEffects();
 
 // Animate squares function
@@ -24,7 +31,7 @@ function animateSquares() {
     if (i % 2 === 0) {
       square.style.transform =
         `translateX(-20px) translateY(20px) scale(0.87)`;
-      square.style.opacity = "0.7";
+      //square.style.opacity = "0.98";
       square.style.zIndex = "21";
     } else {
       square.insertAdjacentHTML(
@@ -34,7 +41,7 @@ function animateSquares() {
         <div class='space-grid-square-drop-border'></div>
       `
       );
-      square.style.opacity = "1";
+      //square.style.opacity = "0.98";
       //square.style.borderRadius = "0px 80px 80px 0";
     }
 
@@ -57,11 +64,11 @@ function scrollEffects() {
         // Scroll effect on squares
         for (let i = 0; i < gridContainer.length; i++) {
           gridContainer[i].style[i % 2 ? "left" : "right"] = `${
-            window.pageYOffset / 20
+            window.pageYOffset / 10
           }px`;
         }
 
-        $("#space").style.backgroundPositionY = `${window.pageYOffset / 2}px`;
+        //$("#space").style.backgroundPositionY = `${window.pageYOffset / 2}px`;
 
         // Hide header when scrolling down and show when scrolling up
         let currentScrollPos = window.pageYOffset;
