@@ -26,7 +26,16 @@ main {
 section {
   max-width: 1300px;
 }
-
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  z-index: 0;
+  transition: 2s 1.5s;
+}
 #space {
   height: 100vh;
   width: 100%;
@@ -36,7 +45,7 @@ section {
   position: relative;
 }
 
-#space .space-grid-container {
+.space-grid-container {
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -45,34 +54,94 @@ section {
   flex-wrap: no-wrap;
   overflow: hidden;
   margin-bottom: 0px;
+  /* border for testing 
+  border: 6px solid #fff;
+  */
   background-color: rgb(0, 0, 0);
-  transition: 2s background-color 1s;
   transform-style: preserve-3d;
 }
-#space .space-grid-container .space-grid-square {
+
+.space-grid-square {
   position: relative;
   flex: 1 0 300px;
   height: auto;
   top: 0;
   left: 0px;
-  background-color: rgb(59, 59, 59);
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(0, 0, 0),
+    rgb(26, 26, 26) 40%,
+    rgb(26, 26, 26) 60%,
+    rgb(0, 0, 0) 100%
+  );
   z-index: 20;
-  opacity: 0;
-  /*box-shadow: 20px 20px 10px rgba(0,0,0,1);*/
-  border: 1px solid rgb(0, 0, 0, 0.5);
-  transition: 4s ease-out margin 4s, 2s ease-out opacity 0s,
-    2s ease-out transform 2s;
+  opacity: 1;
+  /* border for testing 
+  border: 6px solid green;
+  */
+  transition: 
+    4s ease-out margin 5s, 
+    4s linear opacity 5s,
+    3s ease-out transform 2s, 
+    2s ease-out border-radius 4s;
 }
 .space-grid-square:before {
   content: "";
   display: block;
   padding-top: 100%;
-  background-image: linear-gradient(45deg, #ffffff, #bbbbbb);
   opacity: 0;
-  transition: 2s opacity 2s;
+  background-color: transparent;
 }
-.break-apart {
-  margin-right: 100px;
+.space-grid-square-drop-border {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 19px;
+  left: -50px;
+  transform: rotate(-45deg);
+  width: 60px;
+  height: 2px;
+  background-color: rgb(5, 5, 5);
+  z-index: 15;
+}
+.space-grid-square-drop {
+  position: absolute;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 41px;
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    black 5%,
+    rgb(36, 36, 36),
+    #000000 95%
+  );
+  box-shadow: inset 4px 4px 10px black, inset -4px -4px 10px black;
+  z-index: 10;
+  transition: 2s ease-out opacity 0s;
+}
+.space-grid-square-drop:after {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0px;
+  left: 259px;
+  width: 41px;
+  height: 300px;
+  border-radius: 100px 0px 0px 0px;
+  background-image: linear-gradient(
+    transparent 12%,
+    #000000 15%,
+    rgb(26, 26, 26),
+    #000000
+  );
+  box-shadow: inset 4px 4px 10px black, inset -4px -4px 10px black;
+  z-index: 10;
+}
+.square-final-animation {
+  /*margin-right: 100px;*/
+  box-shadow: inset 4px 4px 38px black, inset -4px -4px 38px black;
 }
 
 #skills {
@@ -82,7 +151,9 @@ section {
 }
 /* Header */
 header {
-  opacity: 0;
+  /* display none for debugging */
+  display: none;
+  visibility: hidden;
   position: fixed;
   top: 0;
   left: 0;
