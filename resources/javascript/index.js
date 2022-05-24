@@ -23,7 +23,7 @@ function animateSquares() {
     // Target every other square with different effects
     if (i % 2 === 0) {
       square.style.transform =
-        "perspective(300px) translateZ(-38px) translateX(-19px) translateY(24px) rotateY(.1deg)";
+        `translateX(-20px) translateY(20px) scale(0.87)`;
       square.style.opacity = "0.7";
       square.style.zIndex = "21";
     } else {
