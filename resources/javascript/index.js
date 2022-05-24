@@ -23,7 +23,7 @@ function animateSquares() {
     // Target every other square with different effects
     if (i % 2 === 0) {
       square.style.transform =
-        "perspective(300px) translateZ(-32px) translateX(-30px) translateY(30px) rotateY(.1deg)";
+        "perspective(300px) translateZ(-38px) translateX(-19px) translateY(24px) rotateY(.1deg)";
       square.style.opacity = "0.7";
       square.style.zIndex = "21";
     } else {
@@ -57,9 +57,11 @@ function scrollEffects() {
         // Scroll effect on squares
         for (let i = 0; i < gridContainer.length; i++) {
           gridContainer[i].style[i % 2 ? "left" : "right"] = `${
-            window.pageYOffset / 10
+            window.pageYOffset / 20
           }px`;
         }
+
+        $("#space").style.backgroundPositionY = `${window.pageYOffset / 2}px`;
 
         // Hide header when scrolling down and show when scrolling up
         let currentScrollPos = window.pageYOffset;
