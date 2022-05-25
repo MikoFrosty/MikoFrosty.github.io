@@ -102,6 +102,19 @@ section {
   opacity: 0;
   background-color: transparent;
 }
+#secret-square {
+    position: absolute;
+    top: 340px;
+    left: 1500px;
+    width: 260px;
+    height: 260px;
+    background-color: transparent;
+    z-index: 500;
+}
+#secret-square:hover {
+    background-color: rgb(255, 0, 0);
+    z-index: 500;
+}
 .space-grid-square-drop-border {
   position: absolute;
   content: "";
