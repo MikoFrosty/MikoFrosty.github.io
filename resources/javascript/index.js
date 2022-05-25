@@ -32,6 +32,7 @@ function animateSquares() {
       square.style.transform =
         `translateX(-20px) translateY(20px) scale(0.87)`;
       //square.style.opacity = "0.98";
+      square.style.boxShadow = "inset 12px -12px 14px black";
       square.style.zIndex = "21";
     } else {
       square.insertAdjacentHTML(
@@ -41,7 +42,6 @@ function animateSquares() {
         <div class='space-grid-square-drop-border'></div>
       `
       );
-      //square.style.opacity = "0.98";
       //square.style.borderRadius = "0px 80px 80px 0";
     }
 
