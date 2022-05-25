@@ -90,7 +90,7 @@ section {
     4s ease-out margin 5s, 
     1s linear opacity 3s,
     1s cubic-bezier(1,1.9,.03,.65) transform 1.8s,
-    1s ease box-shadow 1.8s;
+    1s cubic-bezier(1,1.9,.03,.65) box-shadow 1.8s;
 }
 .square-final-animation {
     box-shadow: inset 1px 1px 1px black, inset -1px -1px 1px black;
