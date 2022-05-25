@@ -24,10 +24,12 @@ main {
   height: 100%;
   overflow: hidden;
 }
-
+/* Unused
 section {
-  
+
 }
+*/
+
 #overlay {
   position: absolute;
   top: 0;
@@ -60,7 +62,6 @@ section {
   border: 6px solid #fff;
   */
   background-color: rgb(0, 0, 0);
-  backdrop-filter: blur(0px);
 }
 
 .space-grid-square {
@@ -70,6 +71,7 @@ section {
   top: 0;
   left: 0px;
   background-color:rgb(14, 14, 14);
+
   /*
   background-image: linear-gradient(
     to bottom right,
@@ -87,7 +89,8 @@ section {
   transition: 
     4s ease-out margin 5s, 
     1s linear opacity 3s,
-    1s ease-out transform 2s;
+    1s cubic-bezier(.54,.2,.92,.18) transform 2s,
+    1s ease box-shadow 2s;
 }
 .square-final-animation {
     box-shadow: inset 1px 1px 1px black, inset -1px -1px 1px black;
