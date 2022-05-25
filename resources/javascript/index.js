@@ -66,6 +66,7 @@ function scrollEffects() {
           gridContainer[i].style[i % 2 ? "left" : "right"] = `${
             window.pageYOffset / 10
           }px`;
+          $("#secret-square").style.left = `${1500 + (window.pageYOffset / 10)}px`;
         }
 
         //$("#space").style.backgroundPositionY = `${window.pageYOffset / 2}px`;
