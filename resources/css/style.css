@@ -43,11 +43,24 @@ section {
 #space {
   height: calc(100vh + 100px);
   width: 100%;
-  /*background-image: url("../images/space.png");*/
+  background-position: right;
+  background-repeat: repeat-y;
   background-color:rgb(14, 14, 14);
   background-size: auto;
   position: relative;
   overflow: hidden;
+}
+
+@keyframes bgScroll {
+    0% {
+      background-position : 1400px 1500px
+    }
+    50% {
+      background-position : 1410px 1250px;
+    }
+    100% {
+      background-position : 1400px 1000px
+    }
 }
 
 .space-grid-container {
@@ -58,39 +71,46 @@ section {
   align-content: flex-start;
   flex-wrap: no-wrap;
   margin-bottom: 0px;
-  /* border for testing 
-  border: 6px solid #fff;
-  */
   background-color: rgb(0, 0, 0);
 }
 
-.space-grid-square {
+.space-grid-square { 
   position: relative;
   flex: 1 0 300px;
   height: auto;
   top: 0;
   left: 0px;
   background-color:rgb(14, 14, 14);
-
-  /*
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(0, 0, 0),
-    rgb(20, 20, 20) 30%,
-    rgb(15, 15, 15) 70%,
-    rgb(0, 0, 0) 100%
-  );
-  */
   z-index: 20;
   opacity: 1;
-  /* border for testing 
-  border: 6px solid green;
-  */
   transition: 
-    4s ease-out margin 5s, 
-    1s linear opacity 3s,
+    0s margin 0s, 
+    2s linear opacity 0s,
     1s cubic-bezier(1,1.9,.03,.65) transform 1.8s,
-    1s cubic-bezier(1,1.9,.03,.65) box-shadow 1.8s;
+    1s cubic-bezier(1,1.9,.03,.65) box-shadow 1.8s;    
+}
+@keyframes shake {
+    0% {
+      transform: translateX(-20px) translateY(20px) scale(0.87);
+    }
+    50% {
+      transform: translateX(-19px) translateY(19px) scale(0.881);
+    }
+    100% {
+      transform: translateX(-20px) translateY(20px) scale(0.87);
+    }
+}
+@keyframes drop {
+    0% {
+      transform: perspective(100px) translateX(-20px) translateY(20px) translateZ(-1px) scale(0.87) rotateY(.3deg);
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      transform: perspective(330px) translateX(-20px) translateY(20px) translateZ(-2000px) scale(0) rotateY(180deg) rotate(170deg) translate(-550px, -800px);
+      opacity: 0;
+    }
 }
 .square-final-animation {
     box-shadow: inset 1px 1px 1px black, inset -1px -1px 1px black;
@@ -111,10 +131,11 @@ section {
     background-color: transparent;
     z-index: 500;
 }
-#secret-square:hover {
-    background-color: rgb(255, 0, 0);
-    z-index: 500;
+
+#emergency-exit {
+    background-image: url(../images/emergency.png);
 }
+
 .space-grid-square-drop-border {
   position: absolute;
   content: "";
@@ -135,7 +156,7 @@ section {
   height: 41px;
   background-image: linear-gradient(
     90deg,
-    black 0%,
+    black,
     rgb(36, 36, 36),
     #000000 95%
   );
@@ -152,12 +173,31 @@ section {
   height: 300px;
   border-radius: 100px 0px 0px 0px;
   background-image: linear-gradient(
-    transparent 12%,
-    #000000 15%,
+    
+    #000000,
     rgb(26, 26, 26),
     #000000
   );
   box-shadow: inset 4px 4px 10px black, inset -4px -4px 10px black;
+}
+#astronaut {
+    display: none;
+    width: 180px;
+    height: auto;
+    position: absolute;
+    top: 440px;
+    left: 1550px;
+}
+@keyframes astronaut-animation {
+    0% {
+      transform: translate(10px, -10px);
+    }
+    50% {
+      transform: translate(-10px, 10px);
+    }
+    100% {
+      transform: translate(10px, -10px);
+    }
 }
 
 /* Intro */
