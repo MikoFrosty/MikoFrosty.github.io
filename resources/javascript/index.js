@@ -53,7 +53,9 @@ function animateSquares() {
     const stopShake = () => {
     gridSquares[14].style.animation = "";
   };
-  secretSquare.addEventListener("mouseenter", shake);
+  
+  setTimeout(() => {
+     secretSquare.addEventListener("mouseenter", shake);
   secretSquare.addEventListener("mouseleave", stopShake);
   
   secretSquare.addEventListener("click", () => {
@@ -71,7 +73,10 @@ function animateSquares() {
     $("#astronaut").style.animation = "astronaut-animation 6s ease-in-out infinite";
     
   }, {once: true});
-}
+}, 2500);
+
+  }
+  
 
 // Scroll effects function
 function scrollEffects() {
