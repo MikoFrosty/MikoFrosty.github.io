@@ -31,7 +31,6 @@ function animateSquares() {
     if (i % 2 === 0) {
       square.style.transform =
         `translateX(-20px) translateY(20px) scale(0.87)`;
-      //square.style.opacity = "0.98";
       square.style.boxShadow = "inset 12px -12px 14px black";
       square.style.zIndex = "21";
     } else {
@@ -42,12 +41,36 @@ function animateSquares() {
         <div class='space-grid-square-drop-border'></div>
       `
       );
-      //square.style.borderRadius = "0px 80px 80px 0";
     }
 
-    // Possible future use
     square.classList.add("square-final-animation");
   }
+  
+  const secretSquare = $("#secret-square");
+  const shake = () => {
+    gridSquares[14].style.animation = "shake 0.2s linear infinite";
+  };
+    const stopShake = () => {
+    gridSquares[14].style.animation = "";
+  };
+  secretSquare.addEventListener("mouseenter", shake);
+  secretSquare.addEventListener("mouseleave", stopShake);
+  
+  secretSquare.addEventListener("click", () => {
+
+    secretSquare.removeEventListener("mouseenter", shake);
+    secretSquare.removeEventListener("mouseleave", stopShake);
+
+    gridSquares[14].style.transition = "2s opacity 2s";
+    gridSquares[14].style.animation = "drop 4s ease-in forwards";
+   
+    $("#space").style.backgroundImage = "url('./resources/images/space.png')";
+    $("#space").style.animation = "bgScroll 20s linear infinite";
+
+    $("#astronaut").style.display = "block";
+    $("#astronaut").style.animation = "astronaut-animation 6s ease-in-out infinite";
+    
+  }, {once: true});
 }
 
 // Scroll effects function
@@ -68,8 +91,6 @@ function scrollEffects() {
           }px`;
           $("#secret-square").style.left = `${1500 + (window.pageYOffset / 10)}px`;
         }
-
-        //$("#space").style.backgroundPositionY = `${window.pageYOffset / 2}px`;
 
         // Hide header when scrolling down and show when scrolling up
         let currentScrollPos = window.pageYOffset;
