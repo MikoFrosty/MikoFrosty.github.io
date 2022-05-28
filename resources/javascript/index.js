@@ -20,6 +20,24 @@ setTimeout(() => {
 //animateSquares();
 scrollEffects();
 
+/* Setting up observers 
+setObserver();
+function setObserver() {
+
+    let options = {
+        root: $(null),
+        rootMargin: '0px',
+        threshold: 1.0
+    }
+    
+
+
+    let observer = new IntersectionObserver(callback, options);
+    let target = $("#logo-js");
+    observer.observe(target);
+}
+*/
+
 // Animate squares function
 function animateSquares() {
   const gridSquares = $$(".space-grid-square");
