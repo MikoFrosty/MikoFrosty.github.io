@@ -223,6 +223,7 @@ section {
     border-radius: 10px;
     height: 400px;
     opacity: 0;
+    /* Intro animation, possibly move to keyframe style for reuse in other elements */
     transform: perspective(500px) translateZ(-200px) rotateY(-20deg) translate(-700px);
     transition: 2s transform 0.5s, 1s opacity 1.3s;
     z-index: 50;
@@ -274,6 +275,30 @@ section {
   justify-content: center;
   align-items: center;
   background-color: rgb(0, 0, 0);
+}
+.skills-images {
+    position: relative;
+    margin-bottom: 150px;
+}
+.skills-images img {
+    width: 300px;
+    height: auto;
+}
+#logo-html {
+    position: absolute;
+    z-index: 1;
+    right: 120px;
+}
+#logo-css {
+    position: absolute;
+    z-index: 2;
+    left: 120px;
+}
+#logo-js {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 3;
 }
 
 /* Header */
