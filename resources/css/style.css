@@ -298,8 +298,6 @@ section {
     position: relative;
     padding: 20px 0;
     opacity: 0;
-    transform: perspective(500px) translateZ(-200px) rotateY(-20deg) translate(-700px);
-    transition: 1s transform 0s, .7s opacity 0.3s;
 }
 .skills-images img {
     width: 200px;
