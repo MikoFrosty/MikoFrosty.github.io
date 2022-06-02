@@ -7,11 +7,21 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="./resources/css/normalize.css" />
     <link rel="stylesheet" href="./resources/css/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
     <script type="module" src="./resources/javascript/index.js" defer></script>
   </head>
   <body>
-
     <!-- Header -->
     <header>
       <h1>Portfolio</h1>
@@ -64,41 +74,97 @@
         <div class="space-grid-square"></div>
       </div>
     </div>
-    
+
     <!-- Overlay -->
     <div id="overlay"></div>
-    
+
     <!-- Secret square & astronaut -->
     <div id="secret-square"></div>
-    <img src="./resources/images/astronaut.png" alt="floating astronaut" id="astronaut">
+    <img
+      src="./resources/images/astronaut.png"
+      alt="floating astronaut"
+      id="astronaut"
+    />
 
     <!-- Intro -->
     <div id="intro-container">
-        <div id="intro-box">
-            <h1>Hi, i'm Brandon Mikowski</h1>
-            <p>a web developer</p>
-        </div>
+      <div id="intro-box">
+        <h1>Hello, I'm Brandon Mikowski</h1>
+        <p>a web developer</p>
+      </div>
     </div>
 
     <!-- Skills -->
     <section id="skills">
-        <div id="skills-container">
-        <h2>Skills</h2>
+      <div id="skills-container">
+        <h2>About Me</h2>
         <div class="skills-images">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" alt="HTML5 logo" id="logo-html" />  
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" alt="CSS3 logo" id="logo-css" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo" id="logo-js"/>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg"
+            alt="HTML5 logo"
+            id="logo-html"
+            class="left"
+            data-direction="left"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg"
+            alt="CSS3 logo"
+            id="logo-css"
+            class="right"
+            data-direction="right"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+            alt="JavaScript logo"
+            id="logo-js"
+            class="center"
+          />
         </div>
-            <ul>
-                <li>Git</li>
-                <li>GitHub</li>
-                <li>Visual Studio Code</li>
-                <li>........</li>
-                <li>lorem</li>
-                <li>ipsum</li>
-            </ul>
-        
+        <div class="skills-images">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original-wordmark.svg"
+            alt="VSCode logo"
+            id="logo-vscode"
+            class="left"
+            data-direction="left"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg"
+            alt="Git logo"
+            id="logo-git"
+            class="right"
+            data-direction="right"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg"
+            alt="GitHub logo"
+            id="logo-github"
+            class="center"
+          />
         </div>
+        <div class="skills-images">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg"
+            alt="Canva logo"
+            id="logo-canva"
+            class="left"
+            data-direction="left"
+          />
+          <img
+            src="./resources/images/rest-api.svg"
+            alt="RestAPI logo"
+            id="logo-restapi"
+            class="right"
+            data-direction="right"
+          />
+          <img
+            src="./resources/images/jamstack.png"
+            alt="Jamstack logo"
+            id="logo-jamstack"
+            class="center"
+          />
+        </div>
+      </div>
     </section>
     <footer>
       <p>&copy; 2022 Brandon Mikowski</p>
