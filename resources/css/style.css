@@ -9,7 +9,7 @@
 
 html {
   font-size: 20px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
 }
 
 body {
@@ -35,13 +35,13 @@ section {
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vh + 100px);
+  height: min(calc(100vh + 200px), 1200px);
   background-color: rgb(14, 14, 14);
   z-index: 40;
   transition: 1s 1s;
 }
 #space {
-  height: calc(100vh + 100px);
+  height: min(calc(100vh + 200px), 1200px);
   width: 100%;
   background-position: right;
   background-repeat: repeat-y;
@@ -102,6 +102,9 @@ section {
 }
 @keyframes drop {
     0% {
+      transform: perspective(100px) translateX(-20px) translateY(20px) translateZ(-2px) scale(0.87);
+    }
+    12% {
       transform: perspective(100px) translateX(-20px) translateY(20px) translateZ(-1px) scale(0.87) rotateY(.3deg);
     }
     80% {
@@ -213,7 +216,7 @@ section {
     z-index: 50;
 }
 #intro-box {
-    font-family: monospace, sans-serif;
+    font-family: 'Montserrat', 'Roboto', sans-serif;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -231,7 +234,7 @@ section {
 #intro-box h1 {
     color: rgba(255, 255, 255, 0.945);
     font-size: 80px;
-    font-weight: bold;
+    font-weight: 400;
     text-shadow: 2px 2px 2px black;
     margin: 0;
     padding: 0;
@@ -242,7 +245,7 @@ section {
     /*color: rgb(255, 238, 0);*/
     color: #F28705;
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 700;
     text-shadow: 2px 2px 2px black;
     margin: 0;
     padding: 0;
@@ -256,49 +259,77 @@ section {
   position: relative;
   top: -100px;
   clip-path: polygon(0 100px, 100% 0, 100% 100%, 0 100%);
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  background-color: #012E40;
+  background-image: url(../images/space.png);
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 50;
+  animation: bgScroll 20s linear infinite;
 }
 #skills-container {
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 1300px;
+  padding: 120px 0;
   height: 100%;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0, 0, 0);
+  background-color: #012e40f4;
+}
+#skills-container h2 {
+  position: relative;
+  color: #F28705;
+  font-size: 50px;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px black;
+  margin: 40px;
+  padding: 0;
+  transform: rotate(-3deg);
+  right: 250px;
+  text-align: center;
+  z-index: 50;
 }
 .skills-images {
     position: relative;
-    margin-bottom: 150px;
+    padding: 20px 0;
+    opacity: 0;
+    transform: perspective(500px) translateZ(-200px) rotateY(-20deg) translate(-700px);
+    transition: 1s transform 0s, .7s opacity 0.3s;
 }
 .skills-images img {
-    width: 300px;
+    width: 200px;
     height: auto;
+    opacity: 0;
+    transition: 2s opacity, 50ms left, 50ms right;
 }
-#logo-html {
+.skills-images .left {
     position: absolute;
     z-index: 1;
-    right: 120px;
+    right: 0;
 }
-#logo-css {
+.skills-images .right {
     position: absolute;
     z-index: 2;
-    left: 120px;
+    
 }
-#logo-js {
+.skills-images .center {
     position: relative;
     top: 0;
     left: 0;
     z-index: 3;
+    transition: 1s opacity;
+}
+
+.scroll-slide-right {
+  opacity: 0;
+}
+.scroll-slide-left {
+  opacity: 0;
 }
 
 /* Header */
