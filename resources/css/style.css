@@ -24,12 +24,23 @@ main {
   height: 100%;
   overflow: hidden;
 }
-/* Unused
-section {
 
+/* Header */
+header {
+  /* display none for debugging */
+  display: none;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  z-index: 999;
+  transition: 0.5s;
 }
-*/
 
+/* Overlay & grid squares */
 #overlay {
   position: absolute;
   top: 0;
@@ -275,6 +286,7 @@ section {
   display: flex;
   flex-direction: column;
   padding: 120px 0;
+  padding-bottom: 300px;
   height: 100%;
   width: 100%;
   justify-content: center;
@@ -330,20 +342,72 @@ section {
   opacity: 0;
 }
 
-/* Header */
-header {
-  /* display none for debugging */
-  display: none;
-  visibility: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Projects */
+#projects {
+  background-image: linear-gradient(
+    45deg,
+    #fc6500,
+    #ff8c00,
+    #ff7300
+  );
+  background-color: #F28705;
+  position: relative;
+  top: -200px;
+  clip-path: polygon(0 0, 50% 100px, 100% 0, 100% 100%, 0 100%);
+  min-height: calc(100vh + 200px);
   width: 100%;
-  height: 100px;
-  background-color: #fff;
-  z-index: 999;
-  transition: 0.5s;
+  margin-bottom: -200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
 }
+#projects-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 120px 0;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.project-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 120px 0;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+#projects-container h2 {
+  position: relative;
+  color: #012e40;
+  font-size: 50px;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px black;
+  margin: 40px;
+  padding: 0;
+  transform: rotate(-3deg);
+  right: 250px;
+  text-align: center;
+  z-index: 50;
+}
+.project-image {
+    position: relative;
+    padding: 20px 0;
+    opacity: 0;
+}
+.project-image img {
+    width: 200px;
+    height: auto;
+    opacity: 0;
+    transition: 2s opacity, 50ms left, 50ms right;
+}
+
 
 /* Media Queries */
 
