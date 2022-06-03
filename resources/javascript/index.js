@@ -38,6 +38,7 @@ function setObserver() {
 
   const intro = $("#intro-box");
   const skillsImages = $$(".skills-images");
+  const projectsOverlay = $("#projects-overlay");
 
   // Observer options
   let options = {
@@ -84,11 +85,25 @@ function setObserver() {
     });
   }
 
+  // Observer action for Projects overlay
+  function shrinkOverlay(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        projectsOverlay.style.animation = "shrink .7s ease-out forwards";
+      } else {
+        projectsOverlay.style.animation = "";
+      }
+    });
+  }
+
   // Observer action for Intro section & other reveal elements
   let revealObserver = new IntersectionObserver(rotateReveal, options);
 
   // Create observer for Skills section
   let skillsObserver = new IntersectionObserver(skillsAction, options);
+
+  // Create observer for Projects overlay
+  let overlayObserver = new IntersectionObserver(shrinkOverlay, options);
 
   // Add observer to reveal elements
   revealObserver.observe(intro);
@@ -100,6 +115,9 @@ function setObserver() {
   for (let element in skillsElements) {
     skillsObserver.observe(skillsElements[element]);
   }
+
+  // Add observer to Projects overlay
+  overlayObserver.observe(projectsOverlay);
 }
 
 // Animate squares function
