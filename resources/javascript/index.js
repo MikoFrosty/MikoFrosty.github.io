@@ -19,6 +19,7 @@ scrollEffects();
 // Setting up observers
 setObserver();
 function setObserver() {
+  // DOM VARIBALES & OBJECTS
   const skillsElements = {
     jsLogo: $("#logo-js"),
     cssLogo: $("#logo-css"),
@@ -28,25 +29,23 @@ function setObserver() {
     gitLogo: $("#logo-git"),
     restapiLogo: $("#logo-restapi"),
     jamstackLogo: $("#logo-jamstack"),
-    canvaLogo: $("#logo-canva"),
-    /*
-    nodeLogo: $("#logo-node"),
-    expressLogo: $("#logo-express"),
-    mongodbLogo: $("#logo-mongodb"),
-    mongooseLogo: $("#logo-mongoose")*/
+    canvaLogo: $("#logo-canva")
   };
 
   const intro = $("#intro-box");
   const skillsImages = $$(".skills-images");
   const projectsOverlay = $("#projects-overlay");
+  const projectsContainer = $("#projects-container");
+  const projectBoxes = $$(".project-box");
 
-  // Observer options
+  // OBSERVER OPTIONS
   let options = {
     rootMargin: "0px",
     threshold: 0.4,
   };
 
-  // Observer action for elements to rotate and fade in
+  // OBSERVER FUNCTIONS (ACTIONS) //
+  // rotate and reveal
   function rotateReveal(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -67,7 +66,7 @@ function setObserver() {
     });
   }
 
-  // Observer action for Skills section
+  // slide out while scrolling (Skills section)
   function skillsAction(entries) {
     entries.forEach((entry) => {
       let direction = entry.target.dataset.direction;
@@ -85,39 +84,58 @@ function setObserver() {
     });
   }
 
-  // Observer action for Projects overlay
+  // shrink in from both sides (rotate on X 90 deg)
   function shrinkOverlay(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        projectsOverlay.style.animation = "shrink .7s ease-out forwards";
+        entry.target.style.animation = "shrink .5s ease-out forwards";
       } else {
-        projectsOverlay.style.animation = "";
+        entry.target.style.animation = "";
       }
     });
   }
 
-  // Observer action for Intro section & other reveal elements
-  let revealObserver = new IntersectionObserver(rotateReveal, options);
-
-  // Create observer for Skills section
-  let skillsObserver = new IntersectionObserver(skillsAction, options);
-
-  // Create observer for Projects overlay
-  let overlayObserver = new IntersectionObserver(shrinkOverlay, options);
-
-  // Add observer to reveal elements
-  revealObserver.observe(intro);
-  skillsImages.forEach((container) => {
-    revealObserver.observe(container);
-  });
-
-  // Add observer to Skills section
-  for (let element in skillsElements) {
-    skillsObserver.observe(skillsElements[element]);
+  // fade in
+  function fadeIn(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+      } else {
+        entry.target.style.opacity = "0";
+      }
+    });
   }
 
-  // Add observer to Projects overlay
-  overlayObserver.observe(projectsOverlay);
+  // OBSERVER CREATION //
+  // Rotate and reveal
+  const rotateRevealObserver = new IntersectionObserver(rotateReveal, options);
+  // Scroll slide - Skills section
+  const scrollSlideObserver = new IntersectionObserver(skillsAction, options);
+  // Shrink (flip)
+  const shrinkObserver = new IntersectionObserver(shrinkOverlay, options);
+  // Fade in
+  const fadeInObserver = new IntersectionObserver(fadeIn, options);
+
+  // LINK OBSERVERS //
+  // Intro text and skills images
+  rotateRevealObserver.observe(intro);
+  skillsImages.forEach((container) => {
+    rotateRevealObserver.observe(container);
+  });
+
+  // Skills images
+  for (let element in skillsElements) {
+    scrollSlideObserver.observe(skillsElements[element]);
+  }
+
+  // Projects overlay
+  shrinkObserver.observe(projectsOverlay);
+
+  // Projects container
+  fadeInObserver.observe(projectsContainer);
+  projectBoxes.forEach((box) => {
+    fadeInObserver.observe(box);
+  });
 }
 
 // Animate squares function
