@@ -43,6 +43,10 @@ function setObserver() {
     rootMargin: "0px",
     threshold: 0.4,
   };
+  let optionsLong = {
+    rootMargin: "0px",
+    threshold: 0.1,
+  };
 
   // OBSERVER FUNCTIONS (ACTIONS) //
   // rotate and reveal
@@ -115,6 +119,7 @@ function setObserver() {
   const shrinkObserver = new IntersectionObserver(shrinkOverlay, options);
   // Fade in
   const fadeInObserver = new IntersectionObserver(fadeIn, options);
+  const fadeInObserverLong = new IntersectionObserver(fadeIn, optionsLong);
 
   // LINK OBSERVERS //
   // Intro text and skills images
@@ -132,7 +137,7 @@ function setObserver() {
   shrinkObserver.observe(projectsOverlay);
 
   // Projects container
-  fadeInObserver.observe(projectsContainer);
+  fadeInObserverLong.observe(projectsContainer);
   projectBoxes.forEach((box) => {
     fadeInObserver.observe(box);
   });
