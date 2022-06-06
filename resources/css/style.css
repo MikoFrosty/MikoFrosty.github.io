@@ -447,10 +447,16 @@ header {
   margin-top: 80px;
   padding: 0;
   background-color: rgba(255, 255, 255, 0);
-  max-height: 270px;
+  height: 270px;
   width: auto;
   justify-content: center;
   align-items: center;
+  transition: 0.7s;
+  border-radius: 20px;
+}
+.project-box:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.274);
 }
 .project-video {
     position: relative;
@@ -464,9 +470,49 @@ header {
 .project-video video {
   border-radius: 16px;
   border: 2px solid rgb(11, 11, 11);
+  transition: 0.2s;
 }
+.video-preview {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.274);
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0;
+}
+a:hover video {
+  border: 2px solid #F28705;
+  transform: scale(1.02);
+  box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.274);
+  cursor: pointer;
+}
+a:hover .video-preview {
+  z-index: 50;
+  opacity: 1;
+}
+.video-preview-button {
+  width: auto;
+  height: auto;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.873);
+  color: black;
+  font-weight: 600;
+  border-radius: 0px;
+}
+
 .project-description {
     color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    height: 270px;
     width: 500px;
     margin-left: 40px;
     padding: 20px;
@@ -474,13 +520,24 @@ header {
 .project-description h3 {
     color: #ebebeb;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 600;
     text-shadow: 2px 2px 2px black;
     margin-bottom: 20px;
     padding: 0;
     text-align: center;
     z-index: 50;
+}
+.project-description p {    
+    font-size: 18px;
+    text-align: left;
+}
+.project-github {
+    font-size: 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
 }
 
 
