@@ -11,6 +11,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
     />
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +23,7 @@
     <script type="module" src="./resources/javascript/index.js" defer></script>
   </head>
   <body>
-    <!-- Header -->
+    <!-- HEADER -->
     <header>
       <h1>Portfolio</h1>
     </header>
@@ -86,7 +87,7 @@
       id="astronaut"
     />
 
-    <!-- Intro -->
+    <!-- INTRO -->
     <div id="intro-container">
       <div id="intro-box">
         <h1>Hello, I'm Brandon Mikowski</h1>
@@ -94,7 +95,7 @@
       </div>
     </div>
 
-    <!-- Skills -->
+    <!-- SKILLS -->
     <section id="skills">
       <div id="skills-container">
         <h2>Skills</h2>
@@ -166,58 +167,71 @@
         </div>
       </div>
     </section>
+    <!-- PROJECTS -->
     <section id="projects">
       <div id="projects-overlay"></div>
       <div id="projects-container">
         <h2>Projects</h2>
+        <!-- Busy Bee Window Cleaning -->
         <div class="project-box">
+          <a href="https://mikofrosty.github.io/busybee-window-cleaning" target="_blank">
           <div class="project-video">
+            <div class="video-preview">
+              <div class="video-preview-button">Live Preview</div>
+            </div>
             <video autoplay loop muted height="100%" width="auto">
               <source src="./resources/video/busy-bee-preview.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
+          </a>
           <div class="project-description">
             <h3>Busy Bee Window Cleaning</h3>
             <p>
               A brochure style website for a local window cleaning business.
             </p>
-            <a href="" class="project-link">
-              <i class="fas fa-link"></i>
-            </a>
-            <a href="" class="project-github">
-              <i class="fab fa-github"></i>
+            <a href="https://github.com/mikofrosty/busybee-window-cleaning" class="project-github" target="_blank">
+              <i class="lab la-github"></i>
             </a>
           </div>
         </div>
+        <!-- Tic Tac Toe -->
         <div class="project-box">
+          <a href="https://mikofrosty.github.io/TIC-TAC-TOE" target="_blank">
           <div class="project-video">
+            <div class="video-preview">
+              <div class="video-preview-button">Live Preview</div>
+            </div>
             <video autoplay loop muted height="100%" width="auto">
               <source src="./resources/video/tic-tac-toe-preview.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
+          </a>
           <div class="project-description">
             <h3>Tic Tac Toe</h3>
             <p>
               A Tic Tac Toe game with an AI that plays flawlessly. It will never lose.
               Some moves are timed and randomized to make responses more natural.
             </p>
-            <a href="" class="project-link">
-              <i class="fas fa-link"></i>
-            </a>
-            <a href="" class="project-github">
-              <i class="fab fa-github"></i>
+            <a href="https://github.com/mikofrosty/TIC-TAC-TOE" class="project-github">
+              <i class="lab la-github"></i>
             </a>
           </div>
         </div>
+        <!-- When is Elon Pooping? -->
         <div class="project-box">
+          <a href="http://wheniselonpooping.com" target="_blank">
           <div class="project-video">
+            <div class="video-preview">
+              <div class="video-preview-button">Live Preview</div>
+            </div>
             <video autoplay loop muted height="100%" width="auto">
               <source src="./resources/video/elon-preview.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
+          </a>
           <div class="project-description">
             <h3>When is Elon Pooping?</h3>
             <p>
@@ -232,13 +246,19 @@
             </a>
           </div>
         </div>
+        <!-- Weather Guesser -->
         <div class="project-box">
+          <a href="https://mikofrosty.github.io/Weather-Guesser" target="_blank">
           <div class="project-video">
+            <div class="video-preview">
+              <div class="video-preview-button">Live Preview</div>
+            </div>
             <video autoplay loop muted height="100%" width="auto">
               <source src="./resources/video/weather-guesser-preview.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
+          </a>
           <div class="project-description">
             <h3>Weather Guesser</h3>
             <p>
@@ -252,6 +272,7 @@
             </a>
           </div>
         </div>
+        <!-- Mobile Responsive -->
         <div class="project-box">
           <div class="project-video">
             <video autoplay loop muted height="100%" width="auto">
