@@ -116,7 +116,7 @@ function setObserver() {
   // Scroll slide - Skills section
   const scrollSlideObserver = new IntersectionObserver(skillsAction, options);
   // Shrink (flip)
-  const shrinkObserver = new IntersectionObserver(shrinkOverlay, options);
+  const shrinkObserver = new IntersectionObserver(shrinkOverlay, optionsLong);
   // Fade in
   const fadeInObserver = new IntersectionObserver(fadeIn, options);
   const fadeInObserverLong = new IntersectionObserver(fadeIn, optionsLong);
