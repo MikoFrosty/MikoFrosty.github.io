@@ -26,7 +26,7 @@ main {
   overflow: hidden;
 }
 
-/* Header */
+/* HEADER */
 header {
   /* display none for debugging */
   display: none;
@@ -215,7 +215,7 @@ header {
     }
 }
 
-/* Intro */
+/* INTRO */
 #intro-container {
     position: absolute;
     display: flex;
@@ -264,7 +264,7 @@ header {
     z-index: 50;
 }
 
-/* Skills */
+/* SKILLS */
 #skills {
   position: relative;
   top: -100px;
@@ -355,7 +355,7 @@ header {
   opacity: 0;
 }
 
-/* Projects */
+/* PROJECTS */
 #projects {
   background-image: linear-gradient(
     90deg,
@@ -373,6 +373,7 @@ header {
   clip-path: polygon(0 0, 50% 100px, 100% 0, 100% 100%, 0 100%);
   min-height: calc(100vh + 200px);
   width: 100%;
+  padding-bottom: 150px;
   margin-bottom: -200px;
   display: flex;
   flex-direction: column;
@@ -405,7 +406,7 @@ header {
   margin-top: 200px;
   padding: 20px 0;
   min-height: 400px;
-  width: 60%;
+  width: 1100px;
   /*
   background-color: rgba(0, 0, 0, 0.726);
   box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.274);
@@ -510,12 +511,12 @@ a:hover .video-preview {
     color: white;
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-content: space-between;
     justify-content: center;
     height: 270px;
     width: 500px;
     margin-left: 40px;
-    padding: 20px;
+    padding: 10px;
 }
 .project-description h3 {
     color: #ebebeb;
@@ -523,7 +524,6 @@ a:hover .video-preview {
     font-size: 26px;
     font-weight: 600;
     text-shadow: 2px 2px 2px black;
-    margin-bottom: 20px;
     padding: 0;
     text-align: center;
     z-index: 50;
@@ -532,14 +532,70 @@ a:hover .video-preview {
     font-size: 18px;
     text-align: left;
 }
-.project-github {
-    font-size: 50px;
-    justify-content: center;
+.project-description ul {
+  margin-left: 16px;
+}
+.project-skills {
+    border-top: 1px solid white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 0;
-    margin: 0;
+}
+.project-skills p {
+  margin: 0 auto;
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+a.icon {
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 54px;
+  font-weight: 400;
+}
+a.icon:hover {
+  color: #F28705;
+  transform: scale(1.1);
 }
 
+/* FOOTER */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  background-color: #00384e;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px;
+}
+footer p {
+  margin-right: 100px;
+}
+footer .icon {
+  margin: 0 10px;
+}
+.tooltip {
+  font-size: 0.6rem;
+  position: absolute;
+  top: 8px;
+  right: 1px;
+  width: 100%;
+  color: #F28705;
+  text-align: center;
+  font-weight: 600;
+  pointer-events: none;
+  display: block;
+  opacity: 0;
+}
+footer a.icon:hover .tooltip {
+  transition: 1s ease-in 0.1s;
+  opacity: 1;
+}
 
 
 /* Media Queries */
