@@ -14,7 +14,12 @@ html {
 }
 
 body {
+  position: relative;
   background-color: #fafafa;
+  width: 100%;
+}
+main {
+  position: relative;
   width: 100%;
   overflow-x: hidden;
 }
@@ -85,7 +90,9 @@ header {
   margin-bottom: 0px;
   background-color: rgb(0, 0, 0);
 }
-
+.extra-mobile-squares {
+  display: none;
+}
 .space-grid-square { 
   position: relative;
   flex: 1 0 300px;
@@ -444,6 +451,7 @@ header {
 .project-box {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   margin-top: 80px;
   padding: 0;
@@ -596,12 +604,74 @@ footer a.icon:hover .tooltip {
   transition: 1s ease-in 0.1s;
   opacity: 1;
 }
-
-
-/* Media Queries */
-
-@media only screen and (max-width: 600px) {
+.no-break-on-space {
+  white-space: nowrap;
 }
 
-@media only screen and (max-width: 1000px) {
+/* Media Queries */
+@media only screen and (max-width: 1080px) {
+  .space-grid-container {
+    height: 200px;
+  }
+  .extra-mobile-squares {
+    display: flex;
+  }
+  .space-grid-square { 
+    flex: 1 0 200px;    
+    height: 200px;
+  }
+  .space-grid-square-drop { 
+    width: 200px;
+    height: 26px;
+    left: -200px;    
+  }
+  .space-grid-square-drop:after {
+    position: absolute;
+    content: "";
+    display: block;
+    top: 0px;
+    left: 174px;
+    width: 26px;
+    height: 200px;
+  }
+  .space-grid-container:nth-child(even)>.square-final-animation:nth-child(even),
+  .space-grid-container:nth-child(odd)>.square-final-animation:nth-child(odd) {
+    width: 200px;
+    height: 200px;
+    top: -7px;
+    left: 7px;
+  }
+  #projects-container {
+    width: 94%;   
+  }
+  #projects-container:after {
+    left: 0;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0.8);
+  }
+  #projects-container h2 {
+    left: 0;
+    transform: rotate(-2deg);
+  }
+  .project-box {
+    height: auto;
+    margin-top: 32px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #intro-box {
+    bottom: 50px;
+  }
+  #intro-box h1 {
+    font-size: calc(10vw);
+  }
+  .skills-images img {
+    
+  }
+  #skills-container {
+    padding-top: 20px;
+  }
+  #skills-container h2 {
+    left: 0;
+  }
 }
