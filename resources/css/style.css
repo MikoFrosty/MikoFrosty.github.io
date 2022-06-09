@@ -546,6 +546,7 @@ a:hover .video-preview {
 .project-skills {
     border-top: 1px solid white;
     width: 100%;
+    height: 58px;
     display: flex;
     justify-content: space-between;
     align-items: center;
