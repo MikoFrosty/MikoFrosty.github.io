@@ -29,7 +29,10 @@ function setObserver() {
     gitLogo: $("#logo-git"),
     restapiLogo: $("#logo-restapi"),
     jamstackLogo: $("#logo-jamstack"),
-    canvaLogo: $("#logo-canva")
+    canvaLogo: $("#logo-canva"),
+    nodeLogo: $("#logo-nodejs"),
+    expressLogo: $("#logo-express"),
+    mongoDBLogo: $("#logo-mongodb")
   };
 
   const intro = $("#intro-box");
