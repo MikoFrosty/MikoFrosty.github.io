@@ -331,6 +331,17 @@ header {
     padding: 20px 0;
     opacity: 0;
 }
+.skills-images:after {
+  background-color: rgba(255, 255, 255, 0.36);
+  position: absolute;
+  content: "";
+  display: block;
+  top: -6px;
+  left: -400px;
+  width: 1000px;
+  height: 100%;
+  border-radius: 10px;
+}
 .skills-images img {
     width: 200px;
     height: auto;
