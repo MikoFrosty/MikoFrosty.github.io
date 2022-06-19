@@ -223,7 +223,7 @@ header {
 }
 
 /* INTRO */
-#intro-container {
+#intro-container, #intro-container-mobile {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -234,7 +234,10 @@ header {
     height: 100vh;
     z-index: 50;
 }
-#intro-box {
+#intro-container-mobile {
+    display: none;
+}
+#intro-box, #intro-box-mobile {
     font-family: 'Montserrat', 'Roboto', sans-serif;
     position: relative;
     display: flex;
@@ -250,7 +253,11 @@ header {
     transition: 2s transform 0.5s, 1s opacity 1.3s;
     z-index: 50;
 }
-#intro-box h1 {
+#intro-box-mobile {
+    transform: none;
+    display: none;
+}
+#intro-box h1, #intro-box-mobile h1 {
     color: rgba(255, 255, 255, 0.945);
     font-size: 80px;
     font-weight: 400;
@@ -260,7 +267,7 @@ header {
     text-align: center;
     z-index: 50;
 }
-#intro-box p {
+#intro-box p, #intro-box-mobile p {
     color: #F28705;
     font-size: 30px;
     font-weight: 700;
@@ -715,5 +722,24 @@ footer a.icon:hover .tooltip {
   }
   #projects {
     clip-path: polygon(0 0, 50% 50px, 100% 0, 100% 100%, 0 100%);
+  }
+}
+@media only screen and (max-width: 640px) {
+  #intro-container {
+    display: none;
+  }
+  #intro-container-mobile {
+    display: flex;
+    opacity: 1;
+  }
+  #intro-box {
+    display: none
+  }
+  #intro-box-mobile {
+    display: flex;
+    opacity: 1;
+  }
+  #intro-box-mobile h1 {
+    font-size: calc(10vw);
   }
 }
