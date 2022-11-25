@@ -270,7 +270,7 @@ header {
 }
 #intro-box p, #intro-box-mobile p {
     color: #F28705;
-    font-size: 30px;
+    font-size: 3rem;
     font-weight: 700;
     text-shadow: 2px 2px 2px black;
     margin: 0;
@@ -700,6 +700,9 @@ footer a.icon:hover .tooltip {
   #intro-box h1 {
     font-size: calc(10vw);
   }
+  #intro-box p {
+    font-size: calc(7vw);
+  }
   .skills-images:after {
     display: none;
   }
@@ -757,6 +760,9 @@ footer a.icon:hover .tooltip {
   }
   #intro-box-mobile h1 {
     font-size: calc(10vw);
+  }
+  #intro-box-mobile p {
+    font-size: calc(7vw);
   }
   .skills-images-mobile img {
     max-width: 25%;
