@@ -3,11 +3,6 @@
 
 Hi, I'm Brandon Mikowski.
 
-I'm a front-end web developer working towards full-stack.
+I am a Full-stack JavaScript developer. Every day I am challenging my understanding of current technologies while excitedly discovering new ones.
 
-
-## Where's the goodies?
-
-Everything is live on my portfolio website:
-
-http://MikoFrosty.github.io
+[PORTFOLIO](http://MikoFrosty.github.io)
