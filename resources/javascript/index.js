@@ -200,11 +200,11 @@ function animateSquares() {
     lockedSound.loop = true;
     lockedSound.volume = 0.5;
     lockedSound.play();
-    gridSquares[14].style.animation = "shake 0.2s linear infinite";
+    gridSquares[18].style.animation = "shake 0.2s linear infinite";
   };
   const stopShake = () => {
     lockedSound.pause();
-    gridSquares[14].style.animation = "";
+    gridSquares[18].style.animation = "";
   };
 
   // Timeout for Secret Square so that interaction doesn't conflict with opening animation
@@ -222,8 +222,8 @@ function animateSquares() {
         secretSquare.removeEventListener("mouseenter", shake);
         secretSquare.removeEventListener("mouseleave", stopShake);
 
-        gridSquares[14].style.transition = "2s opacity 2s";
-        gridSquares[14].style.animation = "drop 4s ease-in forwards";
+        gridSquares[18].style.transition = "2s opacity 2s";
+        gridSquares[18].style.animation = "drop 4s ease-in forwards";
 
         $("#space").style.backgroundImage =
           "url('./resources/images/space.png')";
