@@ -76,28 +76,6 @@ function setObserver() {
       }
     });
   }
-  // rotate and reveal for mobile
-  function rotateRevealMobile(entries) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.transform =
-          "perspective(500px) translateZ(-200px) rotateY(-20deg) translate(-200px)";
-        // ScrollY is so that the transition for the intro section on page load is timed properly
-        if (window.scrollY) {
-          entry.target.style.transition = "1s transform 0s, .7s opacity 0.3s";
-        }
-        entry.target.style.transform =
-          "perspective(500px) translateZ(-100px) rotateY(0deg) translate(0px)";
-        entry.target.style.opacity = "1";
-      } else {
-        //* Play animation again when the user scrolls back up *//
-        // entry.target.style.transition = "0s";
-        // entry.target.style.opacity = "0";
-        // entry.target.style.transform =
-        //   "perspective(500px) translateZ(-200px) rotateY(-20deg) translate(-200px)";
-      }
-    });
-  }
 
   // slide out while scrolling (Skills section)
   function skillsAction(entries) {
@@ -143,7 +121,6 @@ function setObserver() {
   // OBSERVER CREATION //
   // Rotate and reveal
   const rotateRevealObserver = new IntersectionObserver(rotateReveal, options);
-  const rotateRevealObserverMobile = new IntersectionObserver(rotateRevealMobile, options);
   // Scroll slide - Skills section
   const scrollSlideObserver = new IntersectionObserver(skillsAction, options);
   // Shrink (flip)
