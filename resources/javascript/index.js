@@ -68,10 +68,11 @@ function setObserver() {
           "perspective(500px) translateZ(-100px) rotateY(0deg) translate(0px)";
         entry.target.style.opacity = "1";
       } else {
-        entry.target.style.transition = "0s";
-        entry.target.style.opacity = "0";
-        entry.target.style.transform =
-          "perspective(500px) translateZ(-200px) rotateY(-20deg) translate(-700px)";
+        //* Play animation again when the user scrolls back up *//
+        // entry.target.style.transition = "0s";
+        // entry.target.style.opacity = "0";
+        // entry.target.style.transform =
+        //   "perspective(500px) translateZ(-200px) rotateY(-20deg) translate(-700px)";
       }
     });
   }
@@ -89,10 +90,11 @@ function setObserver() {
           "perspective(500px) translateZ(-100px) rotateY(0deg) translate(0px)";
         entry.target.style.opacity = "1";
       } else {
-        entry.target.style.transition = "0s";
-        entry.target.style.opacity = "0";
-        entry.target.style.transform =
-          "perspective(500px) translateZ(-200px) rotateY(-20deg) translate(-200px)";
+        //* Play animation again when the user scrolls back up *//
+        // entry.target.style.transition = "0s";
+        // entry.target.style.opacity = "0";
+        // entry.target.style.transform =
+        //   "perspective(500px) translateZ(-200px) rotateY(-20deg) translate(-200px)";
       }
     });
   }
@@ -107,10 +109,11 @@ function setObserver() {
         }
         entry.target.style.opacity = "1";
       } else {
-        if (direction) {
-          entry.target.classList.remove(`scroll-slide-${direction}`);
-        }
-        entry.target.style.opacity = "0";
+        //* Play animation again when the user scrolls back up *//
+        // if (direction) {
+        //   entry.target.classList.remove(`scroll-slide-${direction}`);
+        // }
+        // entry.target.style.opacity = "0";
       }
     });
   }
@@ -121,7 +124,7 @@ function setObserver() {
       if (entry.isIntersecting) {
         entry.target.style.animation = "shrink .5s ease-out forwards";
       } else {
-        entry.target.style.animation = "";
+        //entry.target.style.animation = ""; // For repeating animation
       }
     });
   }
@@ -132,7 +135,7 @@ function setObserver() {
       if (entry.isIntersecting) {
         entry.target.style.opacity = "1";
       } else {
-        entry.target.style.opacity = "0";
+        //entry.target.style.opacity = "0"; // For repeating animation
       }
     });
   }
@@ -247,6 +250,7 @@ function scrollEffects() {
   let prevScrollPos = window.scrollY;
   const header = $("header");
   const gridContainer = $$(".space-grid-container");
+  let stopScrollCount = gridContainer.length;
 
   // Window scroll throttled to 50fps
   window.addEventListener(
