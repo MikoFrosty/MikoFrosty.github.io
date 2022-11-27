@@ -133,7 +133,7 @@ function setObserver() {
   // Intro text and skills images
   rotateRevealObserver.observe(intro);
   skillsImages.forEach((container) => {
-    rotateRevealObserver.observe(container);  // DO IF MOBILE CONDITION
+    rotateRevealObserver.observe(container); 
   });
 
   // Skills images
