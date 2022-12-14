@@ -609,13 +609,20 @@ footer {
 footer p {
   margin-right: 100px;
 }
+#footer-icons {
+  height: 70px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  min-width: 340px;
+}
 footer .icon {
   margin: 0 10px;
 }
 .tooltip {
   font-size: 0.6rem;
   position: absolute;
-  top: 8px;
+  top: 6px;
   right: 1px;
   width: 100%;
   color: #F28705;
@@ -626,8 +633,8 @@ footer .icon {
   opacity: 0;
 }
 footer a.icon:hover .tooltip {
-  transition: 1s ease-in 0.1s;
-  opacity: 1;
+  transition: 0.2s ease-in;
+  opacity: 1 !important;
 }
 .no-break-on-space {
   white-space: nowrap;
@@ -799,10 +806,6 @@ footer a.icon:hover .tooltip {
     width: 100%;
   }
   #footer-icons {
-    height: 70px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     width: 100%;
   }
   footer p {
