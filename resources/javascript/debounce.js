@@ -1,4 +1,8 @@
 // lodash-es debounce function adapted for personal use.
+
+// use like this for scroll throttling (50fps):
+// window.addEventListener("scroll", debounce(() => { ... }, 20, { leading: true, maxWait: 20, trailing: true }));
+
 function debounce(func, wait, options) {
   var lastArgs,
     lastThis,
