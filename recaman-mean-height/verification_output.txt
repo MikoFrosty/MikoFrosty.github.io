@@ -1,0 +1,5 @@
+verified through n=1,000,000
+final a_n=2,057,164, H_n=24, c_n=22, q_n=2, r_n=57,164
+same-segment blocked q=2 events: 87,469 (all universal)
+cross-segment blocked q=2 events by height change: {0: 129, 1: 7604}
+first non-universal cross-segment q=2 blocker: (16279, 4159, 17874, 12120, 17, 17, 15, 13)
