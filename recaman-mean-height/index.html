@@ -448,7 +448,17 @@ An OpenAI language model was used as an algebraic exploration, code-generation, 
       const root=document.getElementById('paper');
       const source=document.getElementById('paper-source').textContent;
       if(!window.marked){root.innerHTML='<h1>Preprint</h1><p>Markdown renderer failed to load.</p>';return}
-      root.innerHTML=marked.parse(source,{gfm:true,breaks:false});
+      // Marked treats backslashes as Markdown escapes. Protect TeX before Markdown parsing,
+      // then restore it in the generated HTML so MathJax receives the original delimiters.
+      const math=[];
+      const protectedSource=source.replace(/\\\\\[[\\s\\S]*?\\\\\]|\\\\\([\\s\\S]*?\\\\\)/g,m=>{
+        const token='@@MATHBLOCK'+math.length+'@@';
+        math.push(m);
+        return token;
+      });
+      let rendered=marked.parse(protectedSource,{gfm:true,breaks:false});
+      math.forEach((m,i)=>{rendered=rendered.replace('@@MATHBLOCK'+i+'@@',m)});
+      root.innerHTML=rendered;
       if(window.MathJax&&MathJax.typesetPromise) await MathJax.typesetPromise([root]);
     });
   </script>
