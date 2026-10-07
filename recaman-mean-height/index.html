@@ -22,6 +22,14 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],proc
 <p>Recamán's sequence remains one of the best-known examples of a simple deterministic recurrence whose global behavior is poorly understood. In 2026 Benjamin Chaffin extended the computation beyond \(10^{612}\) terms, with 852655 still the smallest missing value. This preprint introduces a coordinate system based on the signed step height \(H_n\) and its running mean \(M_n\). It proves that both \(H_n\) and the Recamán values \(a_n\) tend to infinity; expresses the quotient and remainder in \(a_n=nq_n+r_n\) directly in terms of \(H_n\) and \(M_n\); identifies the classical remainder segments with integer crossings of \(M_n\); derives a collision-locality theorem; proves that every same-segment blocker at the critical quotient level \(q=2\) is an index-independent algebraic blocker; and proves that whenever the current least missing value is first attained, its height is never attained again. The results sharply constrain a hypothetical future hit of 852655 but do not resolve the coverage problem.</p>
 <p class="keywords"><strong>Keywords:</strong> Recamán sequence; integer sequences; greedy recurrences; quotient-remainder dynamics; computational number theory.</p>
 
+<h2>Scope, prior work, and verification status</h2>
+<p>The references below place this note within the existing study of Recamán's sequence, related recurrences, computational behavior, and height-type statistics. This paper does <strong>not</strong> claim to resolve the central coverage problem. Its contribution is a reformulation built from the running mean of the signed step height and the exact quotient-remainder coordinates that follow from it.</p>
+<p>To the author's knowledge, after review of the sources cited here, the mean-height coordinate representation, the collision-locality theorem, the same-segment \(q=2\) universality theorem, and the terminal-height theorem have not previously appeared in this form. This is a provisional novelty claim, not a claim of exhaustive literature priority; corrections and prior references are welcome.</p>
+<p><strong>Proof status.</strong> The statements in Sections 2–6 are presented as deductive results with proofs in the text. Their validity is intended to rest on those proofs, not on finite computation.</p>
+<p><strong>Computational status.</strong> Section 8 reports an exact-integer audit of the first \(10^6\) terms. It is used to check indexing, implementation consistency, and the occurrence of finite patterns. It is not substituted for proof of any theorem.</p>
+<p><strong>Open status.</strong> Section 7 gives conditional restrictions on a hypothetical future hit of 852655. Those restrictions do not prove that 852655 occurs, that it is permanently missing, or that Recamán's sequence is a permutation.</p>
+<p class="note">No theorem in this preprint has yet been independently peer reviewed or formally verified in a proof assistant.</p>
+
 <h2>1. Definition</h2>
 <p>Let \(a_0=0\). For \(n\ge1\),</p>
 <div class="math">\[
@@ -100,6 +108,12 @@ a_n=\sum_{k=1}^n k\varepsilon_k
 <p>Therefore \(\lfloor(N-s)/2\rfloor&lt;s\), giving the result. ∎</p>
 <p>At a wrap, the next remainder also satisfies</p>
 <div class="math">\[\boxed{r_{n+1}\ge\left\lceil\frac{n+1}{2}\right\rceil.}\]</div>
+<p>Indeed, when \(\delta_n=1\),</p>
+<div class="math">\[
+r_{n+1}=r_n-q_n+n+1\ge n+1-q_n
+\ge\left\lceil\frac{n+1}{2}\right\rceil,
+\]</div>
+<p>using \(r_n\ge0\) and \(q_n\le(n+1)/2\).</p>
 
 <h2>4. Collision locality</h2>
 <p>At state \(a_N\), suppose the proposed subtraction \(a_N-(N+1)\) is blocked because it equals an earlier term \(a_j\). Put \(L=N-j\) and \(S=H_N-H_j\).</p>
@@ -119,6 +133,7 @@ a_n=\sum_{k=1}^n k\varepsilon_k
 <h3>Corollary 4.2 — Shortest universal blocker</h3>
 <p>The unique universal blocker of length three is</p>
 <div class="math">\[\boxed{DUU.}\]</div>
+<p class="proof"><strong>Proof.</strong> Since \(\sum_i\sigma_i=1\) with each \(\sigma_i\in\{-1,+1\}\), the length \(L\) must be odd. Length one is impossible because the weighted condition would require \(\sigma_1=2\). At length three, the first condition forces exactly two up-steps and one down-step; the weighted condition \(\sum i\sigma_i=4\) places the down-step uniquely in the first position, giving \(DUU\). ∎</p>
 <p>Therefore \(DUUD\) cannot occur in Recamán's sign word: after \(DUU\), the next proposed subtraction returns exactly to the value three steps earlier and is blocked.</p>
 
 <h2>5. Same-segment universality at the critical level q=2</h2>
@@ -169,7 +184,7 @@ a_n=\sum_{k=1}^n k\varepsilon_k
 <p>The terminal-height theorem implies that, until the next mean crossing, the quotient can never return to zero. Hence the remainder falls by at least one per step, and the next mean-height segment must begin by</p>
 <div class="math">\[\boxed{K+852657.}\]</div>
 <p>So a future hit would occur in a narrow terminal window relative to its enormous segment index.</p>
-<p>There is also a <strong>77,403-wide corridor</strong> immediately above the hole. If \(q=1\) and</p>
+<p>There is also a corridor extending <strong>77,403 units above the hole</strong>. If \(q=1\) and</p>
 <div class="math">\[852657\le r\le930058,\]</div>
 <p>then the attempted subtraction target \(r-1\) lies in the already occupied interval \([852656,930057]\), so the walk is reflected upward. The exceptional state</p>
 <div class="math">\[\boxed{(q,r)=(1,852656)}\]</div>
@@ -182,7 +197,7 @@ a_n=\sum_{k=1}^n k\varepsilon_k
 <p class="note"><strong>Important.</strong> These restrictions do not prove that 852655 occurs or that it is permanently missing.</p>
 
 <h2>8. Computational audit</h2>
-<p>The algebraic theorems do not depend on computation, but an exact-integer implementation was used to stress-test indexing and conjectural strengthenings. An exhaustive audit through the first \(10^6\) terms found:</p>
+<p>The theorems in Sections 2–6 do not use this computation as a premise. An exact-integer implementation was used only to stress-test indexing, verify that the coordinate formulas agree with the generated recurrence on a large finite range, and investigate conjectural strengthenings. An exhaustive audit through the first \(10^6\) terms found:</p>
 <table><thead><tr><th>Audit item</th><th>Result</th></tr></thead><tbody>
 <tr><td>Coordinate/transition identity violations</td><td>0</td></tr>
 <tr><td>Occurrences of forbidden DUUD</td><td>0</td></tr>
@@ -192,7 +207,7 @@ a_n=\sum_{k=1}^n k\varepsilon_k
 <tr><td>Cross-segment blocked q=2 events with height change 0</td><td>129</td></tr>
 <tr><td>First non-universal cross-segment q=2 event</td><td>N=16279, j=4159</td></tr>
 </tbody></table>
-<p>The audit is a reproducibility check, not evidence substituted for proof.</p>
+<p>The audit is a finite reproducibility and implementation check, not evidence substituted for proof. In particular, a zero count in a finite audit does not establish a universal statement; universal claims above rely on their deductive arguments.</p>
 
 <h2>9. Open problems</h2>
 <ol>
@@ -214,7 +229,7 @@ a_n=\sum_{k=1}^n k\varepsilon_k
 </ol>
 
 <h2>Disclosure</h2>
-<p>An OpenAI language model was used as an algebraic exploration, code-generation, and drafting aid. During preparation, provisional claims were re-derived and computationally audited. This document is a preprint and has not undergone independent peer review.</p>
+<p>An OpenAI language model was used extensively during exploration, derivation attempts, algebraic checking, code generation, computational auditing, and drafting. Provisional claims were repeatedly checked against the recurrence and re-derived before inclusion where possible. The author takes responsibility for the claims and any errors in this manuscript. This document remains a preprint: it has not undergone independent peer review, and its theorems have not yet been formally verified in a proof assistant.</p>
 </main>
 </body>
 </html>
