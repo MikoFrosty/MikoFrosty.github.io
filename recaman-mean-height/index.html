@@ -642,7 +642,71 @@ m=\sum q\ge2m-z,
 <p>and</p>
 <div class="math">\[\boxed{\ell=4m-1\ge4,294,114,643.}\]</div>
 <p>The data check is finite rather than deductive; a short verifier is included at <a href="verify_hole_density.py">verify_hole_density.py</a>. It downloads Chaffin's published hole file, expands the listed ranges logically, and checks the necessary inequality above.</p>
-<p>A genuinely cross-segment blocker remains the main unresolved alternative. At an index beyond \(10^{612}\), collision locality already forces a non-universal blocker to reach back on the order of \(10^{306}\) indices, unless it falls into the still stronger half-index branch of Theorem 9.10.</p>
+<p>A genuinely cross-segment blocker remains the main unresolved alternative. The next theorem sharpens its shorter-lag branch.</p>
+
+<h3>Theorem 9.13 — Fixed-height lower bound for a cross-segment gateway blocker</h3>
+<p>Let a \(q=2,L=g\) gateway at index \(N\) be blocked by \(a_j=N+g+2\) from an earlier mean-height segment, and put \(\ell=N-j\). If</p>
+<div class="math">\[
+\ell&lt;\frac{N-g-2}{2},
+\]</div>
+<p>then \(q_j=1\). Put</p>
+<div class="math">\[d=c_N-c_j\ge1.\]</div>
+<p>Then</p>
+<div class="math">\[
+\boxed{
+\ell
+\ge
+\sqrt{,4Nd+2d^2+6d+2,}-d-1.
+}
+\]</div>
+<p>In particular,</p>
+<div class="math">\[\boxed{\ell\ge\sqrt{4N+10}-2.}\]</div>
+<p class="proof"><strong>Proof.</strong> If \(q_j\ge2\), then</p>
+<div class="math">\[
+N+g+2=a_j\ge2j=2(N-\ell),
+\]</div>
+<p>which is exactly the excluded half-index inequality. Hence \(q_j=1\).</p>
+<p>Use the fixed-height potential of Theorem 9.4 with baseline \(h=c_j\). At \(j\), its height coordinate is \(x_j=1\), and</p>
+<div class="math">\[
+\Phi_h(j)=a_j-j-T_1=g+\ell+1.
+\]</div>
+<p>At the gateway, \(x_N=d+2\), so</p>
+<div class="math">\[
+\Phi_h(N)
+=
+2N+g+3-N(d+2)-T_{d+2}
+=
+g+3-Nd-T_{d+2}.
+\]</div>
+<p>Thus the required potential drop is</p>
+<div class="math">\[
+D=Nd+\ell-2+T_{d+2}.
+\]</div>
+<p>The fixed-height coordinate changes by \(\pm1\) at every step. Since it rises from \(1\) to \(d+2\) in \(\ell\) steps, the number of up-steps is</p>
+<div class="math">\[
+U=\frac{\ell+d+1}{2}.
+\]</div>
+<p>The \(k\)-th up-step can start at height at most \(k\): before it there have been only \(k-1\) earlier up-steps. Therefore Theorem 9.4 gives the upper bound</p>
+<div class="math">\[
+D\le\sum_{k=1}^{U}(2k+1)=U(U+2).
+\]</div>
+<p>Substitution and simplification yield</p>
+<div class="math">\[
+(\ell+d+1)^2\ge4Nd+2d^2+6d+2,
+\]</div>
+<p>which proves the first bound.</p>
+<p>For fixed \(N\), the right-hand expression after solving for \(\ell\),</p>
+<div class="math">\[
+f(d)=\sqrt{4Nd+2d^2+6d+2}-d-1,
+\]</div>
+<p>is increasing for \(d&gt;0\), because</p>
+<div class="math">\[
+(2N+2d+3)^2-(4Nd+2d^2+6d+2)&gt;0.
+\]</div>
+<p>Hence its minimum for integer \(d\ge1\) occurs at \(d=1\), giving \(\ell\ge\sqrt{4N+10}-2\). ∎</p>
+<p>For every prospective gateway far beyond Chaffin's \(10^{612}\) horizon, the half-index alternative of Theorem 9.10 is much larger than this bound. Thus every cross-segment blocker there must reach back at least approximately</p>
+<div class="math">\[\boxed{2\times10^{306}}\]</div>
+<p>indices.</p>
 
 <h3>Consequence for the renewal problem</h3>
 <p>The global obstruction can now be stated in two equivalent ways.</p>
