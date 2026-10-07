@@ -938,24 +938,162 @@ T_Q.
 
 Since \(\gamma_{Q,Q-1}=T_Q-T_2=T_Q-3\), the second identity follows. ∎
 
-### Consequence for the renewal problem
+### Theorem 9.9 — The \(q=2\) gateway for a previously flanked hole
 
-The global obstruction can now be stated without reference to a moving segment remainder. At every exact threshold \((Q,L=g)\), permanent protection requires only that at least one rung of the triangular ladder
+Fix \(g\), and suppose both that \(g\) is still missing and that \(g+1\) has already occurred. After that first occurrence of \(g+1\), a future hit of \(g\) is equivalent to the existence of a state \(n\) with
 
 \[
-T_Q-T_1,;
-T_Q-T_2,;
-\ldots,;
-T_Q-T_{Q-1}
+\boxed{q_n=2,qquad L_n=g}
 \]
 
-be occupied in its corresponding incoming profile level. Theorem 9.2 explains how ping-pong blocks manufacture intervals and stride-three spines in those levels; Theorem 9.6 gives their exact drift; Corollary 9.7 shows that the certificate renormalizes perfectly under every legal downward step.
+whose next subtraction is legal.
 
-Corollary 9.8 also shows why the local block alone cannot finish the proof: at a newly created exact threshold, the fresh structures miss the first ladder sites by fixed deficits of \(1\) and \(3\). The genuinely global task is therefore precise:
+Indeed, every such unblocked gateway hits \(g\) exactly two steps later.
 
-> prove that older renewal layers always fill at least one triangular deficit before a dangerous staircase can reach \(g\).
+**Proof.** First suppose \(q_n=2\), \(L_n=g\), and the subtraction at step \(n+1\) is legal. Then \(r_n=g+3\), so
 
-This closes the **local decision**, **profile transport**, and **self-similar certificate** parts of the renewal route. What remains unproved is the perpetual-regeneration statement itself.
+\[
+a_n=2n+g+3.
+\]
+
+After subtraction,
+
+\[
+a_{n+1}=n+g+2=(n+1)+(g+1),
+\]
+
+hence \(q_{n+1}=1\), \(r_{n+1}=g+1\), and \(L_{n+1}=g\). Since \(g\) is still missing, the next subtraction is legal and gives \(a_{n+2}=g\).
+
+Conversely, suppose \(a_K=g\) is a future first hit after \(g+1\) has already occurred. Since \(K>g\), the hit is by subtraction, so
+
+\[
+a_{K-1}=K+g=(K-1)+(g+1),
+\]
+
+and therefore \(q_{K-1}=1\), \(L_{K-1}=g\). The step into this state cannot have been an addition: that would force \(a_{K-2}=g+1\), but any term less than its index can only arise as a legal subtraction endpoint and hence must be new, contradicting the earlier occurrence of \(g+1\). Thus step \(K-1\) was a subtraction. Reversing it gives
+
+\[
+a_{K-2}=2K+g-1=2(K-2)+(g+3),
+\]
+
+so \(q_{K-2}=2\), \(r_{K-2}=g+3\), and \(L_{K-2}=g\). That subtraction was legal, giving the required unblocked gateway. ∎
+
+For \(g=852655\), the value \(g+1=852656\) is already among the values certified occupied by Chaffin's computation. Thus every hypothetical future hit of 852655 must pass through this single \(q=2\) gate.
+
+### Theorem 9.10 — How old a \(q=2\) gateway blocker must be
+
+Assume \(g\) is missing and that the full interval
+
+\[
+[g+1,g+W]
+\]
+
+was already occupied before a \(q=2\), \(L=g\) gateway state at index \(N\). Suppose the proposed subtraction is blocked by an earlier term \(a_j\), and put \(\ell=N-j\).
+
+If \(j\) lies in the same mean-height segment as \(N\), then the blocker is universal by Theorem 5.1, and
+
+\[
+\boxed{\ell\ge W.}
+\]
+
+Combined with Corollary 4.3, its lag must in fact be the least integer at least \(W\) that is congruent to \(3\pmod4\).
+
+If \(j\) lies in an earlier mean-height segment, then either
+
+\[
+\boxed{
+\frac{\ell(\ell-1)}2+1\ge N,
+}
+\]
+
+or
+
+\[
+\boxed{
+\ell\ge\frac{N-g-2}{2}.
+}
+\]
+
+**Proof.** At the gateway,
+
+\[
+a_N=2N+g+3,
+\]
+
+so the blocked subtraction target is
+
+\[
+a_j=N+g+2.
+\]
+
+In the same-segment case, Theorem 5.1 gives \(q_j=1\). Hence
+
+\[
+r_j=a_j-j=g+\ell+2
+\]
+
+and therefore
+
+\[
+L_j=r_j-1=g+\ell+1.
+\]
+
+The universal blocker runs from quotient one at \(j\) to quotient two at \(N\). Let \(\sigma_1,\ldots,\sigma_\ell\) be its sign word and let
+
+\[
+q_k=1+\sum_{i=1}^k\sigma_i
+\qquad(0\le k\le\ell).
+\]
+
+The universal-blocker identities imply
+
+\[
+\sum_{k=1}^{\ell-1}q_k=\ell-2.
+\]
+
+Since the quotient is nonnegative inside one segment, some internal \(q_k\) must equal zero; otherwise the sum would be at least \(\ell-1\). At that internal \(q=0\) state, the actual Recamán value equals its landing coordinate. The landing coordinate is nonincreasing from \(g+\ell+1\) to \(g\), and it cannot equal \(g\) because \(g\) is still missing. Thus this internal \(q=0\) state visits some integer in
+
+\[
+[g+1,g+\ell+1].
+\]
+
+Such a late \(q=0\) value must be a first occurrence. If \(\ell<W\), the entire displayed interval is contained in the already occupied corridor \([g+1,g+W]\), a contradiction. Hence \(\ell\ge W\). Corollary 4.3 supplies the congruence restriction.
+
+Now suppose the blocker is cross-segment and put \(S=H_N-H_j\). If \(S\ne1\), Theorem 4.1 gives the first displayed lower bound. If \(S=1\), then because \(j\) is in an earlier segment, \(c_j<c_N\). Since \(q_N=2\),
+
+\[
+1=S=(c_N+2)-(c_j+q_j),
+\]
+
+so \(q_j=c_N-c_j+1\ge2\). Therefore
+
+\[
+N+g+2=a_j\ge2j=2(N-\ell),
+\]
+
+which rearranges to the second lower bound. ∎
+
+For the known corridor above 852655,
+
+\[
+W=930057-852655=77402.
+\]
+
+Hence any same-segment future blocker of the \(q=2\) gateway must have universal-blocker lag at least
+
+\[
+\boxed{77403}
+\]
+
+because its lag is congruent to \(3\pmod4\). A genuinely cross-segment blocker at an index beyond \(10^{612}\) must reach back by at least the collision-locality scale \(\asymp10^{306}\), unless it falls into the even stronger half-index alternative.
+
+### Consequence for the renewal problem
+
+The global obstruction can now be stated in two equivalent ways.
+
+At an arbitrary exact threshold \((Q,L=g)\), protection is a finite triangular-ladder certificate. But once \(g+1\) is known to have occurred, every actual future hit must ultimately pass through the single \(q=2\) gateway of Theorem 9.9. Thus permanent omission of a specific mature hole \(g\) is equivalent to perpetual blocking of all later \(q=2,L=g\) states.
+
+For 852655, Theorem 9.10 shows that any such perpetual blocker must be structurally extreme: either a very long same-segment universal blocker or an extraordinarily old cross-segment collision. This does not yet prove that the gateway is always blocked—or that an exact gateway ever occurs—but it sharply isolates the remaining mechanism.
 
 ## 10. Open problems
 
