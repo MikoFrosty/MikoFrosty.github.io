@@ -1161,25 +1161,25 @@ For \(g=852655\), an exhaustive check of Chaffin's published list of all holes b
 g+4m<2^{32}
 \]
 
-for which the interval \((g,g+4m]\) contains at least \(m\) published holes. Consequently any such post-horizon same-segment blocker must satisfy
+for which the interval \((g,g+4m]\) contains at least \(m\) published holes. The published file expands to 1,277,400 missing integers below \(2^{32}\), including \(g\) itself. Even after \(g+4m\) passes \(2^{32}\), make the maximally generous assumption that **every** integer at or above \(2^{32}\) is still missing. Then the total number of available first-occurrence slots in \((g,g+4m]\) is at most
 
 \[
-g+4m\ge2^{32},
+1,277,399+\max\bigl(0,\,g+4m-2^{32}+1\bigr).
 \]
 
-hence
+Theorem 9.11 requires this quantity to be at least \(m\). Together with the exhaustive check below \(2^{32}\), this forces
 
 \[
-\boxed{m\ge1,073,528,661}
+\boxed{m\ge1,430,945,747}
 \]
 
-and
+and therefore
 
 \[
-\boxed{\ell=4m-1\ge4,294,114,643.}
+\boxed{\ell=4m-1\ge5,723,782,987.}
 \]
 
-The data check is finite rather than deductive; a short verifier is included at [verify_hole_density.py](verify_hole_density.py). It downloads Chaffin's published hole file, expands the listed ranges logically, and checks the necessary inequality above.
+The data step is finite rather than deductive; a short verifier is included at [verify_hole_density.py](verify_hole_density.py). It downloads Chaffin's published hole file, expands the ranges, checks the interval-density condition below \(2^{32}\), and verifies the conservative capacity bound above it.
 
 A genuinely cross-segment blocker remains the main unresolved alternative. The next theorem sharpens its shorter-lag branch.
 
