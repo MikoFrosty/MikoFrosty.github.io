@@ -15,6 +15,20 @@ Recamán's sequence remains one of the best-known examples of a simple determini
 
 **Keywords:** Recamán sequence; integer sequences; greedy recurrences; quotient-remainder dynamics; computational number theory.
 
+## Scope, prior work, and verification status
+
+The references below place this note within the existing study of Recamán's sequence, related recurrences, computational behavior, and height-type statistics. This paper does **not** claim to resolve the central coverage problem. Its contribution is a reformulation built from the running mean of the signed step height and the exact quotient-remainder coordinates that follow from it.
+
+To the author's knowledge, after review of the sources cited here, the mean-height coordinate representation, the collision-locality theorem, the same-segment \(q=2\) universality theorem, and the terminal-height theorem have not previously appeared in this form. This is a provisional novelty claim, not a claim of exhaustive literature priority; corrections and prior references are welcome.
+
+**Proof status.** The statements in Sections 2–6 are presented as deductive results with proofs in the text. Their validity is intended to rest on those proofs, not on finite computation.
+
+**Computational status.** Section 8 reports an exact-integer audit of the first \(10^6\) terms. It is used to check indexing, implementation consistency, and the occurrence of finite patterns. It is not substituted for proof of any theorem.
+
+**Open status.** Section 7 gives conditional restrictions on a hypothetical future hit of 852655. Those restrictions do not prove that 852655 occurs, that it is permanently missing, or that Recamán's sequence is a permutation.
+
+No theorem in this preprint has yet been independently peer reviewed or formally verified in a proof assistant.
+
 ## 1. Definition
 
 Let \(a_0=0\). For \(n\ge1\),
@@ -182,6 +196,15 @@ At a wrap, the next remainder also satisfies
 \boxed{r_{n+1}\ge\left\lceil\frac{n+1}{2}\right\rceil.}
 \]
 
+Indeed, when \(\delta_n=1\),
+
+\[
+r_{n+1}=r_n-q_n+n+1\ge n+1-q_n
+\ge\left\lceil\frac{n+1}{2}\right\rceil,
+\]
+
+using \(r_n\ge0\) and \(q_n\le(n+1)/2\).
+
 ## 4. Collision locality
 
 At state \(a_N\), suppose the proposed subtraction \(a_N-(N+1)\) is blocked because it equals an earlier term \(a_j\). Put \(L=N-j\) and \(S=H_N-H_j\).
@@ -227,6 +250,8 @@ The unique universal blocker of length three is
 \[
 \boxed{DUU.}
 \]
+
+**Proof.** Since \(\sum_i\sigma_i=1\) with each \(\sigma_i\in\{-1,+1\}\), the length \(L\) must be odd. Length one is impossible because the weighted condition would require \(\sigma_1=2\). At length three, the first condition forces exactly two up-steps and one down-step; the weighted condition \(\sum i\sigma_i=4\) places the down-step uniquely in the first position, giving \(DUU\). ∎
 
 Therefore \(DUUD\) cannot occur in Recamán's sign word: after \(DUU\), the next proposed subtraction returns exactly to the value three steps earlier and is blocked.
 
@@ -350,7 +375,7 @@ The terminal-height theorem implies that, until the next mean crossing, the quot
 
 So a future hit would occur in a narrow terminal window relative to its enormous segment index.
 
-There is also a **77,403-wide corridor** immediately above the hole. If \(q=1\) and
+There is also a corridor extending **77,403 units above the hole**. If \(q=1\) and
 
 \[
 852657\le r\le930058,
@@ -382,7 +407,7 @@ These restrictions **do not prove** that 852655 occurs or that it is permanently
 
 ## 8. Computational audit
 
-The algebraic theorems do not depend on computation, but an exact-integer implementation was used to stress-test indexing and conjectural strengthenings. An exhaustive audit through the first \(10^6\) terms found:
+The theorems in Sections 2–6 do not use this computation as a premise. An exact-integer implementation was used only to stress-test indexing, verify that the coordinate formulas agree with the generated recurrence on a large finite range, and investigate conjectural strengthenings. An exhaustive audit through the first \(10^6\) terms found:
 
 | Audit item | Result |
 |---|---:|
@@ -394,7 +419,7 @@ The algebraic theorems do not depend on computation, but an exact-integer implem
 | Cross-segment blocked q=2 events with height change 0 | 129 |
 | First non-universal cross-segment q=2 event | N=16279, j=4159 |
 
-The audit is a reproducibility check, not evidence substituted for proof.
+The audit is a finite reproducibility and implementation check, not evidence substituted for proof. In particular, a zero count in a finite audit does not establish a universal statement; universal claims above rely on their deductive arguments.
 
 ## 9. Open problems
 
@@ -415,4 +440,4 @@ The audit is a reproducibility check, not evidence substituted for proof.
 
 ## Disclosure
 
-An OpenAI language model was used as an algebraic exploration, code-generation, and drafting aid. During preparation, provisional claims were re-derived and computationally audited. This document is a preprint and has not undergone independent peer review.
+An OpenAI language model was used extensively during exploration, derivation attempts, algebraic checking, code generation, computational auditing, and drafting. Provisional claims were repeatedly checked against the recurrence and re-derived before inclusion where possible. The author takes responsibility for the claims and any errors in this manuscript. This document remains a preprint: it has not undergone independent peer review, and its theorems have not yet been formally verified in a proof assistant.
