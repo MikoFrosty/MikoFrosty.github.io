@@ -815,17 +815,147 @@ a_{K-j}-a_{K-(j-1)}=K-j+1>0,
 
 so values newly inserted earlier in the same descent cannot equal a later subtraction target. Thus the listed entrance coordinates are necessary and sufficient for an old-history collision before the final step to \(g\). The profile update formula is immediate from its definition: every old value is re-centered from \(\ell n\) to \(\ell(n+1)\), and the new term is then inserted. ∎
 
-### Consequence for the renewal problem
+### Corollary 9.7 — Triangular certificate ladder
 
-The global obstruction can now be stated without reference to a moving segment remainder. At every exact threshold \((Q,L=g)\), permanent protection requires only that at least one of the finite coordinates
+Let
 
 \[
-\gamma_{Q,2},\gamma_{Q,3},\ldots,\gamma_{Q,Q}
+T_s=\frac{s(s+1)}2.
 \]
 
-be occupied in its corresponding incoming profile level. Theorem 9.2 explains how long ping-pong blocks manufacture contiguous intervals in those levels, while Theorem 9.6 gives the exact drift of those intervals to later entrances.
+The entrance certificate coordinates of Theorem 9.6 satisfy
 
-This closes the **local decision** and **transport bookkeeping** parts of the renewal route. What remains unproved is the genuinely global statement that the actual Recamán history regenerates an interval covering at least one required \(\gamma_{Q,j}\) at every future exact threshold.
+\[
+\boxed{
+\gamma_{Q,j}=T_Q-T_{Q-j+1}.
+}
+\]
+
+Equivalently, writing \(s=Q-j+1\), the required certificate at profile level \(Q-s\) is the triangular deficit
+
+\[
+\boxed{
+T_Q-T_s,
+\qquad 1\le s\le Q-1.
+}
+\]
+
+Thus the full protection test at an exact threshold is a finite **triangular ladder** of history sites below the common anchor \(T_Q\).
+
+The ladder is exactly self-similar under a legal subtraction:
+
+\[
+\boxed{
+\gamma_{Q,j}-(j-1)=\gamma_{Q-1,j}.
+}
+\]
+
+Hence, after one legal downward step from quotient \(Q\) to quotient \(Q-1\), the remaining certificate problem is literally the same ladder problem with \(Q\) replaced by \(Q-1\).
+
+**Proof.** Substituting \(s=Q-j+1\) into the formula of Theorem 9.6 gives
+
+\[
+T_Q-T_s
+=
+\frac{Q(Q+1)-(Q-j+1)(Q-j+2)}2
+=
+\frac{(j-1)(2Q-j+2)}2.
+\]
+
+The transport identity follows immediately:
+
+\[
+\gamma_{Q,j}-(j-1)
+=
+\frac{(j-1)(2Q-j)}2
+=
+\gamma_{Q-1,j}.
+\]
+
+∎
+
+### Corollary 9.8 — The local threshold deficit
+
+Suppose an exact threshold \((Q,L=g)\) is created by an addition from quotient \(Q-1\) during a \((Q-1)/Q\) ping-pong block, and suppose that addition is forced by an occupied subtraction candidate.
+
+Immediately before the threshold addition,
+
+\[
+L-g=2Q-1.
+\]
+
+Writing \(d=r-g\), this gives
+
+\[
+d=T_{Q-1}+2Q-1.
+\]
+
+After the addition, the fresh interval manufactured at profile level \(Q-1\) begins at
+
+\[
+\boxed{
+T_Q=\gamma_{Q,Q}+1.
+}
+\]
+
+Meanwhile the occupied blocker that forced the threshold addition appears at profile level \(Q-2\) at the same coordinate
+
+\[
+\boxed{
+T_Q=\gamma_{Q,Q-1}+3
+}
+\]
+
+when \(Q\ge3\).
+
+Therefore the ping-pong block that creates the exact threshold does **not** automatically certify safety. Its newly created structures sit immediately above the first required ladder sites: one unit above the top certificate and one stride-three step above the next certificate. Any protection at the threshold must therefore come from older history, from an interval that extends the fresh structure downward, or from a deeper ladder level.
+
+**Proof.** At the lower \(q=Q-1\) state before the threshold addition,
+
+\[
+L-g=d-T_{Q-1}=2Q-1,
+\]
+
+hence \(d=T_{Q-1}+2Q-1\). The lower interval in \(P_{Q-1}\) produced by the completed ping-pong cycles has lower endpoint \(d\) at that time. Advancing one step to the threshold shifts level \(Q-1\) left by \(Q-1\), so its lower endpoint becomes
+
+\[
+d-(Q-1)
+=
+T_{Q-1}+Q
+=
+T_Q.
+\]
+
+Since \(\gamma_{Q,Q}=T_Q-T_1=T_Q-1\), the first identity follows.
+
+The subtraction candidate that forces the threshold addition has coordinate \(d-1\) in level \(Q-2\) before the addition. After the one-step shift it has coordinate
+
+\[
+d-1-(Q-2)
+=
+T_Q.
+\]
+
+Since \(\gamma_{Q,Q-1}=T_Q-T_2=T_Q-3\), the second identity follows. ∎
+
+### Consequence for the renewal problem
+
+The global obstruction can now be stated without reference to a moving segment remainder. At every exact threshold \((Q,L=g)\), permanent protection requires only that at least one rung of the triangular ladder
+
+\[
+T_Q-T_1,;
+T_Q-T_2,;
+\ldots,;
+T_Q-T_{Q-1}
+\]
+
+be occupied in its corresponding incoming profile level. Theorem 9.2 explains how ping-pong blocks manufacture intervals and stride-three spines in those levels; Theorem 9.6 gives their exact drift; Corollary 9.7 shows that the certificate renormalizes perfectly under every legal downward step.
+
+Corollary 9.8 also shows why the local block alone cannot finish the proof: at a newly created exact threshold, the fresh structures miss the first ladder sites by fixed deficits of \(1\) and \(3\). The genuinely global task is therefore precise:
+
+> prove that older renewal layers always fill at least one triangular deficit before a dangerous staircase can reach \(g\).
+
+This closes the **local decision**, **profile transport**, and **self-similar certificate** parts of the renewal route. What remains unproved is the perpetual-regeneration statement itself.
 
 ## 10. Open problems
 
