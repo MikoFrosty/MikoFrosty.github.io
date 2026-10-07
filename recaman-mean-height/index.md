@@ -612,7 +612,220 @@ then after the completed block no later term in the same mean-height segment can
 
 **Proof.** Each cycle contains one addition from quotient \(p\), which lowers \(L\) by \(2p+1\), and one subtraction, which leaves \(L\) unchanged. The clearance statement follows from Theorem 9.1. ∎
 
-Theorems 9.1–9.2 give an exact local mechanism by which long alternating runs both consume landing potential and manufacture new occupied intervals and blocker spines. They do **not** by themselves prove permanent omission: at a mean-height crossing, \(L_n\) jumps upward by an amount of order \(n\), so a global argument must still prove that suitably positioned blocking structure is regenerated before every future dangerous entrance.
+Theorems 9.1–9.2 give an exact local mechanism by which long alternating runs both consume landing potential and manufacture new occupied intervals and blocker spines.
+
+### Theorem 9.4 — Fixed-height transport potential
+
+For any fixed integer \(h\), define
+
+\[
+x_n^{(h)}=H_n-h
+\]
+
+and
+
+\[
+\boxed{
+\Phi_h(n)
+=
+a_n-nx_n^{(h)}
+-\frac{x_n^{(h)}(x_n^{(h)}+1)}2.
+}
+\]
+
+Then this potential is valid across the entire sequence, without resetting at a mean-height crossing, and obeys
+
+\[
+\boxed{
+\Phi_h(n+1)=
+\begin{cases}
+\Phi_h(n),&\varepsilon_{n+1}=-1,\\
+\Phi_h(n)-\bigl(2x_n^{(h)}+1\bigr),&\varepsilon_{n+1}=+1.
+\end{cases}}
+\]
+
+For adjacent baselines,
+
+\[
+\boxed{
+\Phi_{h+1}(n)=\Phi_h(n)+n+x_n^{(h)}.
+}
+\]
+
+When \(c_n=h\), one has \(x_n^{(h)}=q_n\) and
+
+\[
+\boxed{\Phi_h(n)=L_n.}
+\]
+
+Thus the large jump in \(L_n\) at a mean-height crossing is not a discontinuity of the underlying fixed-height dynamics; it is the exact change of coordinates obtained by replacing baseline \(h\) with \(h+1\).
+
+**Proof.** Put \(x=x_n^{(h)}\). Since
+
+\[
+a_{n+1}=a_n+(n+1)\varepsilon_{n+1},
+\qquad
+x_{n+1}^{(h)}=x+\varepsilon_{n+1},
+\]
+
+the quantity \(a_{n+1}-(n+1)x_{n+1}^{(h)}\) equals
+\(a_n-(n+1)x\), independently of the sign. If the step is down, the triangular correction changes from \(x(x+1)/2\) to \(x(x-1)/2\), exactly cancelling the additional \(-x\). If the step is up, the same calculation leaves the decrement \(2x+1\). The baseline-shift identity follows by replacing \(x\) with \(x-1\). Finally, when \(c_n=h\), \(x=H_n-c_n=q_n\) and \(a_n-nq_n=r_n\), so \(\Phi_h(n)=r_n-q_n(q_n+1)/2=L_n\). ∎
+
+### Theorem 9.5 — One-shot threshold reduction inside a mean-height segment
+
+Fix a target integer \(g\ge0\) and a mean-height segment on which \(c_n=h\). Assume the indices under consideration exceed \(g\). Because \(L_n\) is nonincreasing inside the segment, there is at most one first index \(t\) at which
+
+\[
+L_t\le g.
+\]
+
+Before that index, the segment cannot contain \(g\). If
+
+\[
+L_t<g,
+\]
+
+then the remainder of the segment cannot contain \(g\) either.
+
+If instead
+
+\[
+L_t=g
+\]
+
+and \(q_t=Q\), then exactly one of the following occurs:
+
+1. the next \(Q\) steps are all legal subtractions, in which case
+   \[
+   a_{t+Q}=g;
+   \]
+2. one of those proposed subtractions is blocked, forcing an addition; that addition lowers \(L\) strictly below \(g\), after which \(g\) is impossible for the remainder of the segment.
+
+Thus one entire mean-height segment has at most one genuine opportunity to hit a fixed late target \(g\), and that opportunity is a finite downward staircase.
+
+**Proof.** For \(n>g\), an occurrence \(a_n=g\) must have \(q_n=0\), hence \(a_n=L_n\). Therefore no state with \(L_n>g\) can equal \(g\), and Theorem 9.1 shows that once \(L_n<g\), it cannot return to \(g\) before the segment ends.
+
+Now suppose \(L_t=g\). A subtraction preserves \(L\), while an addition from quotient \(q\) lowers it by \(2q+1>0\). Hence as long as \(L\) remains equal to \(g\), every step must be a subtraction and \(q\) falls by one each time. Also, while \(L=g\),
+
+\[
+r=g+\frac{q(q+1)}2\ge q,
+\]
+
+so the mean-crossing condition \(q>r\) cannot occur. Therefore \(Q\) uninterrupted subtractions reach \(q=0\) and value \(g\). Any earlier blocked subtraction forces an addition and hence moves \(L\) below \(g\), permanently clearing the target for that segment. ∎
+
+### Theorem 9.6 — Exact dangerous staircase and finite entrance certificate
+
+Under the dangerous case of Theorem 9.5, suppose \(L_t=g\) and \(q_t=Q\). If the free fall succeeds, write
+
+\[
+K=t+Q.
+\]
+
+Then the complete terminal staircase is
+
+\[
+\boxed{
+a_{K-j}
+=
+jK+g-\binom j2
+\qquad(0\le j\le Q).
+}
+\]
+
+In particular, every value with \(0\le j<Q\) must be previously unvisited at the moment it is reached.
+
+Define, at the entrance time \(t\), the moving history profile
+
+\[
+\boxed{
+P_\ell(t)
+=
+\{a_i-\ell t-g:0\le i\le t\}.
+}
+\]
+
+For \(2\le j\le Q\), define the fixed certificate coordinate
+
+\[
+\boxed{
+\gamma_{Q,j}
+=
+\frac{(j-1)(2Q-j+2)}2.
+}
+\]
+
+Then, assuming \(g\) itself is still unvisited at time \(t\),
+
+\[
+\boxed{
+\text{the staircase hits }g
+\iff
+\gamma_{Q,j}\notin P_{j-1}(t)
+\text{ for every }2\le j\le Q.
+}
+\]
+
+Equivalently, occupation of **any one** of these finitely many coordinates certifies protection at that entrance.
+
+The profile has the exact global update law
+
+\[
+\boxed{
+P_\ell(n+1)
+=
+\bigl(P_\ell(n)-\ell\bigr)
+\cup
+\{a_{n+1}-\ell(n+1)-g\}.
+}
+\]
+
+Therefore every previously occupied interval in level \(\ell\) drifts rigidly left by \(\ell\) per time step, while newly visited values are inserted explicitly. This transport law is valid through mean-height crossings.
+
+**Proof.** If \(q=j\), \(L=g\), and the eventual hit occurs at \(K\), then the state lies at index \(K-j\), with
+
+\[
+r=g+\frac{j(j+1)}2.
+\]
+
+Hence
+
+\[
+a_{K-j}
+=
+(K-j)j+g+\frac{j(j+1)}2
+=
+jK+g-\binom j2.
+\]
+
+At the state with quotient \(j\), the proposed subtraction endpoint is the next staircase value with quotient \(j-1\). Transporting an old occupied value from entrance time \(t=K-Q\) forward by \(Q-j\) steps at profile level \(j-1\) shifts its coordinate by \(-(j-1)(Q-j)\). The coordinate that would block the descent is therefore
+
+\[
+\frac{(j-1)(j+2)}2+(j-1)(Q-j)
+=
+\frac{(j-1)(2Q-j+2)}2
+=
+\gamma_{Q,j}.
+\]
+
+The staircase values are strictly ordered because
+
+\[
+a_{K-j}-a_{K-(j-1)}=K-j+1>0,
+\]
+
+so values newly inserted earlier in the same descent cannot equal a later subtraction target. Thus the listed entrance coordinates are necessary and sufficient for an old-history collision before the final step to \(g\). The profile update formula is immediate from its definition: every old value is re-centered from \(\ell n\) to \(\ell(n+1)\), and the new term is then inserted. ∎
+
+### Consequence for the renewal problem
+
+The global obstruction can now be stated without reference to a moving segment remainder. At every exact threshold \((Q,L=g)\), permanent protection requires only that at least one of the finite coordinates
+
+\[
+\gamma_{Q,2},\gamma_{Q,3},\ldots,\gamma_{Q,Q}
+\]
+
+be occupied in its corresponding incoming profile level. Theorem 9.2 explains how long ping-pong blocks manufacture contiguous intervals in those levels, while Theorem 9.6 gives the exact drift of those intervals to later entrances.
+
+This closes the **local decision** and **transport bookkeeping** parts of the renewal route. What remains unproved is the genuinely global statement that the actual Recamán history regenerates an interval covering at least one required \(\gamma_{Q,j}\) at every future exact threshold.
 
 ## 10. Open problems
 
