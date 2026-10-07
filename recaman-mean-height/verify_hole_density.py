@@ -10,6 +10,7 @@ internal q=0 first occurrences must lie in (g, g+4m].  If the blocker
 starts after the computation horizon, all of those values must therefore
 belong to the published hole set.
 """
+from bisect import bisect_right
 from urllib.request import urlopen
 
 G = 852_655
@@ -35,23 +36,28 @@ def expanded_count(ranges):
     return sum(b - a + 1 for a, b in ranges)
 
 
-def count_open_closed(ranges, lo, hi):
-    """Count holes x with lo < x <= hi."""
-    total = 0
+def build_counter(ranges):
+    starts = [a for a, _ in ranges]
+    prefix = [0]
     for a, b in ranges:
-        if a > hi:
-            break
-        left = max(a, lo + 1)
-        right = min(b, hi)
-        if left <= right:
-            total += right - left + 1
-    return total
+        prefix.append(prefix[-1] + b - a + 1)
+
+    def count_le(hi):
+        i = bisect_right(starts, hi) - 1
+        if i < 0:
+            return 0
+        a, b = ranges[i]
+        before = prefix[i]
+        return before + max(0, min(b, hi) - a + 1)
+
+    return count_le
 
 
 def main():
     text = urlopen(URL).read().decode("utf-8")
     ranges = parse_ranges(text)
     total = expanded_count(ranges)
+    count_le = build_counter(ranges)
 
     assert ranges[0][0] == G
 
@@ -66,7 +72,7 @@ def main():
         hi = G + 4 * m
         if hi >= LIMIT:
             break
-        holes = count_open_closed(ranges, G, hi)
+        holes = count_le(hi) - 1  # exclude g itself
         margin = holes - m
         if worst_margin is None or margin > worst_margin:
             worst_margin = margin
