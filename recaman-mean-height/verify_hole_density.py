@@ -90,14 +90,31 @@ def main():
         # below 2^32 is < m.
         assert total - 1 < max_explicit_m + 1 <= max_m_below_limit
 
-    first_possible_m = (LIMIT - G + 3) // 4
+    first_crossing_m = (LIMIT - G + 3) // 4
+
+    # Even after the interval extends above 2^32, be maximally generous and
+    # pretend every integer at or above 2^32 is still missing.  There are only
+    # (total - 1) published holes below the limit besides g itself, so a
+    # necessary capacity condition is
+    #
+    #   m <= (total - 1) + max(0, G + 4m - LIMIT + 1).
+    #
+    # Solving the positive-tail branch gives the stronger global lower bound.
+    available_below = total - 1
+    numerator = LIMIT - G - 1 - available_below
+    capacity_m = (numerator + 2) // 3
+    first_possible_m = max(first_crossing_m, capacity_m)
     first_possible_lag = 4 * first_possible_m - 1
+
+    assert available_below + max(0, G + 4 * (first_possible_m - 1) - LIMIT + 1) < first_possible_m - 1
+    assert available_below + max(0, G + 4 * first_possible_m - LIMIT + 1) >= first_possible_m
 
     print(f"Expanded holes below 2^32: {total:,}")
     print(f"Largest margin holes-m in checked range: {worst_margin} at m={worst_m}")
     print("No m with g+4m < 2^32 satisfies holes(g, g+4m] >= m.")
-    print(f"Therefore m >= {first_possible_m:,}")
-    print(f"Therefore ell = 4m-1 >= {first_possible_lag:,}")
+    print("Even treating every integer >= 2^32 as potentially missing,")
+    print(f"the capacity inequality forces m >= {first_possible_m:,}.")
+    print(f"Therefore ell = 4m-1 >= {first_possible_lag:,}.")
 
 
 if __name__ == "__main__":
