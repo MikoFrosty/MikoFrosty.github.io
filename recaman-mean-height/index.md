@@ -943,7 +943,7 @@ Since \(\gamma_{Q,Q-1}=T_Q-T_2=T_Q-3\), the second identity follows. ∎
 Fix \(g\), and suppose both that \(g\) is still missing and that \(g+1\) has already occurred. For sufficiently late indices (in particular, for any prospective hit index \(K>g+4\)), a future hit of \(g\) is equivalent to the existence of a state \(n\) with
 
 \[
-\boxed{q_n=2,qquad L_n=g}
+\boxed{q_n=2,\qquad L_n=g}
 \]
 
 whose next subtraction is legal.
@@ -1079,13 +1079,109 @@ For the known corridor above 852655,
 W=930057-852655=77402.
 \]
 
-Hence any same-segment future blocker of the \(q=2\) gateway must have universal-blocker lag at least
+Hence the elementary corridor argument already forces any same-segment future blocker of the \(q=2\) gateway to have universal-blocker lag at least
 
 \[
-\boxed{77403}
+\boxed{77403}.
 \]
 
-because its lag is congruent to \(3\pmod4\). A genuinely cross-segment blocker at an index beyond \(10^{612}\) must reach back by at least the collision-locality scale \(\asymp10^{306}\), unless it falls into the even stronger half-index alternative.
+The following count strengthens this substantially when the whole blocker lies after a computation horizon whose remaining holes are known.
+
+### Theorem 9.11 — A same-segment universal blocker forces many new landings
+
+Suppose a same-segment \(q=2\) gateway blocker has lag
+
+\[
+\ell=4m-1.
+\]
+
+Then its sign word contains at least \(m\) internal up-steps whose source quotient is \(q=0\). The corresponding \(q=0\) states are distinct first occurrences, and their values all lie in
+
+\[
+\boxed{(g,\,g+4m].}
+\]
+
+**Proof.** By Corollary 4.3, \(\ell=4m-1\). A universal blocker has sign sum one, hence it contains
+
+\[
+U=\frac{\ell+1}{2}=2m
+\]
+
+up-steps. At the earlier blocker state, Theorem 5.1 gives \(q=1\), and from Theorem 9.10 the landing coordinate is
+
+\[
+L_{\rm start}=g+\ell+1=g+4m.
+\]
+
+At the gateway, \(L_{\rm end}=g\). Inside one mean-height segment, only up-steps change \(L\), and an up-step from source quotient \(q\) lowers it by \(2q+1\). Therefore
+
+\[
+4m
+=
+\sum_{U\text{-steps}}(2q+1)
+=
+2\sum_{U\text{-steps}}q+2m,
+\]
+
+so
+
+\[
+\boxed{\sum_{U\text{-steps}}q=m.}
+\]
+
+Let \(z\) be the number of these \(2m\) up-steps whose source quotient is zero. Every other source quotient is at least one, so
+
+\[
+m
+=
+\sum q
+\ge
+2m-z,
+\]
+
+and therefore
+
+\[
+\boxed{z\ge m.}
+\]
+
+At a \(q=0\) state one has \(a=L<n\), so the value is necessarily appearing for the first time. The landing coordinate is nonincreasing from \(g+4m\) to \(g\), while \(g\) itself is still missing, hence all these distinct first occurrences lie in \((g,g+4m]\). ∎
+
+### Corollary 9.12 — Hole-density obstruction after Chaffin's horizon
+
+Let \(H\) denote the horizon of Chaffin's computation beyond \(10^{612}\), and suppose a same-segment gateway blocker begins after \(H\). If its lag is \(4m-1\), then at least \(m\) of the values still missing at horizon \(H\) must lie in
+
+\[
+(g,g+4m].
+\]
+
+For \(g=852655\), an exhaustive check of Chaffin's published list of all holes below \(2^{32}\) finds **no** positive integer \(m\) with
+
+\[
+g+4m<2^{32}
+\]
+
+for which the interval \((g,g+4m]\) contains at least \(m\) published holes. Consequently any such post-horizon same-segment blocker must satisfy
+
+\[
+g+4m\ge2^{32},
+\]
+
+hence
+
+\[
+\boxed{m\ge1,073,528,661}
+\]
+
+and
+
+\[
+\boxed{\ell=4m-1\ge4,294,114,643.}
+\]
+
+The data check is finite rather than deductive; a short verifier is included at [verify_hole_density.py](verify_hole_density.py). It downloads Chaffin's published hole file, expands the listed ranges logically, and checks the necessary inequality above.
+
+A genuinely cross-segment blocker remains the main unresolved alternative. At an index beyond \(10^{612}\), collision locality already forces a non-universal blocker to reach back on the order of \(10^{306}\) indices, unless it falls into the still stronger half-index branch of Theorem 9.10.
 
 ### Consequence for the renewal problem
 
