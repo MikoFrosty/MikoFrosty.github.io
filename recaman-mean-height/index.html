@@ -595,9 +595,54 @@ N+g+2=a_j\ge2j=2(N-\ell),
 <div class="math">\[
 W=930057-852655=77402.
 \]</div>
-<p>Hence any same-segment future blocker of the \(q=2\) gateway must have universal-blocker lag at least</p>
+<p>Hence the elementary corridor argument already forces any same-segment future blocker of the \(q=2\) gateway to have universal-blocker lag at least</p>
 <div class="math">\[\boxed{77403}\]</div>
-<p>because its lag is congruent to \(3\pmod4\). A genuinely cross-segment blocker at an index beyond \(10^{612}\) must reach back by at least the collision-locality scale \(\asymp10^{306}\), unless it falls into the even stronger half-index alternative.</p>
+<p>The following count strengthens this substantially when the whole blocker lies after a computation horizon whose remaining holes are known.</p>
+
+<h3>Theorem 9.11 — A same-segment universal blocker forces many new landings</h3>
+<p>Suppose a same-segment \(q=2\) gateway blocker has lag</p>
+<div class="math">\[\ell=4m-1.\]</div>
+<p>Then its sign word contains at least \(m\) internal up-steps whose source quotient is \(q=0\). The corresponding \(q=0\) states are distinct first occurrences, and their values all lie in</p>
+<div class="math">\[\boxed{(g,\,g+4m].}\]</div>
+<p class="proof"><strong>Proof.</strong> By Corollary 4.3, \(\ell=4m-1\). A universal blocker has sign sum one, hence it contains</p>
+<div class="math">\[
+U=\frac{\ell+1}{2}=2m
+\]</div>
+<p>up-steps. At the earlier blocker state, Theorem 5.1 gives \(q=1\), and from Theorem 9.10 the landing coordinate is</p>
+<div class="math">\[
+L_{\rm start}=g+\ell+1=g+4m.
+\]</div>
+<p>At the gateway, \(L_{\rm end}=g\). Inside one mean-height segment, only up-steps change \(L\), and an up-step from source quotient \(q\) lowers it by \(2q+1\). Therefore</p>
+<div class="math">\[
+4m
+=
+\sum_{U\text{-steps}}(2q+1)
+=
+2\sum_{U\text{-steps}}q+2m,
+\]</div>
+<p>so</p>
+<div class="math">\[\boxed{\sum_{U\text{-steps}}q=m.}\]</div>
+<p>Let \(z\) be the number of these \(2m\) up-steps whose source quotient is zero. Every other source quotient is at least one, so</p>
+<div class="math">\[
+m=\sum q\ge2m-z,
+\]</div>
+<p>and therefore</p>
+<div class="math">\[\boxed{z\ge m.}\]</div>
+<p>At a \(q=0\) state one has \(a=L&lt;n\), so the value is necessarily appearing for the first time. The landing coordinate is nonincreasing from \(g+4m\) to \(g\), while \(g\) itself is still missing, hence all these distinct first occurrences lie in \((g,g+4m]\). ∎</p>
+
+<h3>Corollary 9.12 — Hole-density obstruction after Chaffin's horizon</h3>
+<p>Let \(H\) denote the horizon of Chaffin's computation beyond \(10^{612}\), and suppose a same-segment gateway blocker begins after \(H\). If its lag is \(4m-1\), then at least \(m\) of the values still missing at horizon \(H\) must lie in</p>
+<div class="math">\[(g,g+4m].\]</div>
+<p>For \(g=852655\), an exhaustive check of Chaffin's published list of all holes below \(2^{32}\) finds <strong>no</strong> positive integer \(m\) with</p>
+<div class="math">\[g+4m&lt;2^{32}\]</div>
+<p>for which the interval \((g,g+4m]\) contains at least \(m\) published holes. Consequently any such post-horizon same-segment blocker must satisfy</p>
+<div class="math">\[g+4m\ge2^{32},\]</div>
+<p>hence</p>
+<div class="math">\[\boxed{m\ge1,073,528,661}\]</div>
+<p>and</p>
+<div class="math">\[\boxed{\ell=4m-1\ge4,294,114,643.}\]</div>
+<p>The data check is finite rather than deductive; a short verifier is included at <a href="verify_hole_density.py">verify_hole_density.py</a>. It downloads Chaffin's published hole file, expands the listed ranges logically, and checks the necessary inequality above.</p>
+<p>A genuinely cross-segment blocker remains the main unresolved alternative. At an index beyond \(10^{612}\), collision locality already forces a non-universal blocker to reach back on the order of \(10^{306}\) indices, unless it falls into the still stronger half-index branch of Theorem 9.10.</p>
 
 <h3>Consequence for the renewal problem</h3>
 <p>The global obstruction can now be stated in two equivalent ways.</p>
