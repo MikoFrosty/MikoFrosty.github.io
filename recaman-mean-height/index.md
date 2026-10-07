@@ -1181,7 +1181,123 @@ and
 
 The data check is finite rather than deductive; a short verifier is included at [verify_hole_density.py](verify_hole_density.py). It downloads Chaffin's published hole file, expands the listed ranges logically, and checks the necessary inequality above.
 
-A genuinely cross-segment blocker remains the main unresolved alternative. At an index beyond \(10^{612}\), collision locality already forces a non-universal blocker to reach back on the order of \(10^{306}\) indices, unless it falls into the still stronger half-index branch of Theorem 9.10.
+A genuinely cross-segment blocker remains the main unresolved alternative. The next theorem sharpens its shorter-lag branch.
+
+### Theorem 9.13 — Fixed-height lower bound for a cross-segment gateway blocker
+
+Let a \(q=2,L=g\) gateway at index \(N\) be blocked by \(a_j=N+g+2\) from an earlier mean-height segment, and put \(\ell=N-j\). If
+
+\[
+\ell<\frac{N-g-2}{2},
+\]
+
+then \(q_j=1\). Put
+
+\[
+d=c_N-c_j\ge1.
+\]
+
+Then
+
+\[
+\boxed{
+\ell
+\ge
+\sqrt{,4Nd+2d^2+6d+2,}-d-1.
+}
+\]
+
+In particular,
+
+\[
+\boxed{
+\ell\ge\sqrt{4N+10}-2.
+}
+\]
+
+**Proof.** If \(q_j\ge2\), then
+
+\[
+N+g+2=a_j\ge2j=2(N-\ell),
+\]
+
+which is exactly the excluded half-index inequality. Hence \(q_j=1\).
+
+Use the fixed-height potential of Theorem 9.4 with baseline \(h=c_j\). At \(j\), its height coordinate is \(x_j=1\), and
+
+\[
+\Phi_h(j)
+=
+a_j-j-T_1
+=
+g+\ell+1.
+\]
+
+At the gateway, \(x_N=d+2\), so
+
+\[
+\Phi_h(N)
+=
+2N+g+3-N(d+2)-T_{d+2}
+=
+g+3-Nd-T_{d+2}.
+\]
+
+Thus the required potential drop is
+
+\[
+D
+=
+Nd+\ell-2+T_{d+2}.
+\]
+
+The fixed-height coordinate changes by \(\pm1\) at every step. Since it rises from \(1\) to \(d+2\) in \(\ell\) steps, the number of up-steps is
+
+\[
+U=\frac{\ell+d+1}{2}.
+\]
+
+The \(k\)-th up-step can start at height at most \(k\): before it there have been only \(k-1\) earlier up-steps. Therefore Theorem 9.4 gives the upper bound
+
+\[
+D
+\le
+\sum_{k=1}^{U}(2k+1)
+=
+U(U+2).
+\]
+
+Substitution and simplification yield
+
+\[
+(\ell+d+1)^2
+\ge
+4Nd+2d^2+6d+2,
+\]
+
+which proves the first bound.
+
+For fixed \(N\), the right-hand expression after solving for \(\ell\),
+
+\[
+f(d)=\sqrt{4Nd+2d^2+6d+2}-d-1,
+\]
+
+is increasing for \(d>0\), because
+
+\[
+(2N+2d+3)^2-(4Nd+2d^2+6d+2)>0.
+\]
+
+Hence its minimum for integer \(d\ge1\) occurs at \(d=1\), giving \(\ell\ge\sqrt{4N+10}-2\). ∎
+
+For every prospective gateway far beyond Chaffin's \(10^{612}\) horizon, the half-index alternative of Theorem 9.10 is much larger than this bound. Thus every cross-segment blocker there must reach back at least approximately
+
+\[
+\boxed{2\times10^{306}}
+\]
+
+indices.
 
 ### Consequence for the renewal problem
 
