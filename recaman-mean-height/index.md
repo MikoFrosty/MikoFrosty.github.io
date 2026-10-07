@@ -940,7 +940,7 @@ Since \(\gamma_{Q,Q-1}=T_Q-T_2=T_Q-3\), the second identity follows. ∎
 
 ### Theorem 9.9 — The \(q=2\) gateway for a previously flanked hole
 
-Fix \(g\), and suppose both that \(g\) is still missing and that \(g+1\) has already occurred. After that first occurrence of \(g+1\), a future hit of \(g\) is equivalent to the existence of a state \(n\) with
+Fix \(g\), and suppose both that \(g\) is still missing and that \(g+1\) has already occurred. For sufficiently late indices (in particular, for any prospective hit index \(K>g+4\)), a future hit of \(g\) is equivalent to the existence of a state \(n\) with
 
 \[
 \boxed{q_n=2,qquad L_n=g}
