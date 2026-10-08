@@ -283,6 +283,62 @@ The left side is an integer. For odd \(L\), the right side is integral only when
 
 Thus possible universal-blocker lengths are restricted to \(3,7,11,15,\ldots\). The congruence condition is necessary, not sufficient.
 
+### Corollary 4.4 — Sharp lag bound for non-universal collisions
+
+In the non-universal case \(S\ne1\) of Theorem 4.1, the collision lag \(L\) satisfies the stronger bound
+
+\[
+\boxed{
+L\ge\left\lceil2\sqrt{N+2}-2\right\rceil.
+}
+\]
+
+**Proof.** In chronological coordinates let
+
+\[
+p_k=\sum_{i=1}^k\sigma_i,
+\qquad
+p_0=0,
+\qquad
+p_L=S.
+\]
+
+Summation by parts in the collision equation gives the exact path-area identity
+
+\[
+\boxed{
+\sum_{k=0}^{L-1}p_k=N(S-1)-1.
+}
+\]
+
+For a \(\pm1\) path of length \(L\) from \(0\) to \(S\), the largest possible left-hand side is obtained by taking all upward steps first and all downward steps last. Writing \(U=(L+S)/2\), this maximum is
+
+\[
+A_{\max}(L,S)
+=
+\frac{L^2+2LS-S^2-2S}{4}.
+\]
+
+For fixed \(L\), the ratio
+
+\[
+\frac{A_{\max}(L,S)+1}{S-1}
+\]
+
+is decreasing for integers \(S\ge2\). Thus the weakest restriction occurs at \(S=2\), and
+
+\[
+N
+\le
+\frac{A_{\max}(L,2)+1}{1}
+=
+\frac{L^2+4L-4}{4}.
+\]
+
+Solving the quadratic inequality gives the result. The case \(S\le0\) cannot satisfy the positive area identity, while integer \(S\ne1\) arising in a collision is therefore covered by \(S\ge2\). ∎
+
+This improves the coarse \(\sqrt{2N}\)-scale estimate of Theorem 4.1 to the asymptotically sharp path-area scale \(2\sqrt N\) under the fixed endpoint constraint.
+
 ## 5. Same-segment universality at the critical level q=2
 
 At \(q_N=1\), the next subtraction candidate is simply
@@ -1059,7 +1115,7 @@ Since the quotient is nonnegative inside one segment, some internal \(q_k\) must
 
 Such a late \(q=0\) value must be a first occurrence. If \(\ell<W\), the entire displayed interval is contained in the already occupied corridor \([g+1,g+W]\), a contradiction. Hence \(\ell\ge W\). Corollary 4.3 supplies the congruence restriction.
 
-Now suppose the blocker is cross-segment and put \(S=H_N-H_j\). If \(S\ne1\), Theorem 4.1 gives the first displayed lower bound. If \(S=1\), then because \(j\) is in an earlier segment, \(c_j<c_N\). Since \(q_N=2\),
+Now suppose the blocker is cross-segment and put \(S=H_N-H_j\). If \(S\ne1\), Corollary 4.4 gives the stronger bound \(\ell\ge\lceil2\sqrt{N+2}-2\rceil\), which in particular implies the first displayed lower bound. If \(S=1\), then because \(j\) is in an earlier segment, \(c_j<c_N\). Since \(q_N=2\),
 
 \[
 1=S=(c_N+2)-(c_j+q_j),
