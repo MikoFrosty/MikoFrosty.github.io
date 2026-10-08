@@ -325,7 +325,7 @@ For fixed \(L\), the ratio
 \frac{A_{\max}(L,S)+1}{S-1}
 \]
 
-is decreasing for integers \(S\ge2\). Thus the weakest restriction occurs at \(S=2\), and
+is decreasing for integers \(S\ge2\). Thus the weakest restriction in this branch occurs at \(S=2\), and
 
 \[
 N
@@ -335,7 +335,23 @@ N
 \frac{L^2+4L-4}{4}.
 \]
 
-Solving the quadratic inequality gives the result. The case \(S\le0\) cannot satisfy the positive area identity, while integer \(S\ne1\) arising in a collision is therefore covered by \(S\ge2\). ∎
+If instead \(S\le0\), write \(T=-S\ge0\). Reflecting the path gives
+
+\[
+N(T+1)+1
+=
+-\sum_{k=0}^{L-1}p_k
+\le
+A_{\max}(L,T).
+\]
+
+For fixed \(L\), the ratio \((A_{\max}(L,T)-1)/(T+1)\) is decreasing for \(T\ge0\), so the weakest restriction occurs at \(T=0\), yielding
+
+\[
+N\le\frac{L^2-4}{4},
+\]
+
+or \(L\ge2\sqrt{N+1}\), which is stronger than the displayed bound. Thus all integer cases \(S\ne1\) are covered. ∎
 
 This improves the coarse \(\sqrt{2N}\)-scale estimate of Theorem 4.1 to the asymptotically sharp path-area scale \(2\sqrt N\) under the fixed endpoint constraint.
 
