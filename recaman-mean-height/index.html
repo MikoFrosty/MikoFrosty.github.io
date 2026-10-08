@@ -180,7 +180,7 @@ A_{\max}(L,S)
 =
 \frac{L^2+2LS-S^2-2S}{4}.
 \]</div>
-<p>For fixed \(L\), the ratio \((A_{\max}(L,S)+1)/(S-1)\) is decreasing for integers \(S\ge2\). Thus the weakest restriction occurs at \(S=2\), and</p>
+<p>For fixed \(L\), the ratio \((A_{\max}(L,S)+1)/(S-1)\) is decreasing for integers \(S\ge2\). Thus the weakest restriction in this branch occurs at \(S=2\), and</p>
 <div class="math">\[
 N
 \le
@@ -188,7 +188,19 @@ N
 =
 \frac{L^2+4L-4}{4}.
 \]</div>
-<p>Solving the quadratic inequality gives the result. The case \(S\le0\) cannot satisfy the positive area identity, while integer \(S\ne1\) arising in a collision is therefore covered by \(S\ge2\). ∎</p>
+<p>If instead \(S\le0\), write \(T=-S\ge0\). Reflecting the path gives</p>
+<div class="math">\[
+N(T+1)+1
+=
+-\sum_{k=0}^{L-1}p_k
+\le
+A_{\max}(L,T).
+\]</div>
+<p>For fixed \(L\), the ratio \((A_{\max}(L,T)-1)/(T+1)\) is decreasing for \(T\ge0\), so the weakest restriction occurs at \(T=0\), yielding</p>
+<div class="math">\[
+N\le\frac{L^2-4}{4},
+\]</div>
+<p>or \(L\ge2\sqrt{N+1}\), which is stronger than the displayed bound. Thus all integer cases \(S\ne1\) are covered. ∎</p>
 <p>This improves the coarse \(\sqrt{2N}\)-scale estimate of Theorem 4.1 to the asymptotically sharp path-area scale \(2\sqrt N\) under the fixed endpoint constraint.</p>
 
 <h2>5. Same-segment universality at the critical level q=2</h2>
