@@ -782,6 +782,24 @@ f(d)=\sqrt{4Nd+2d^2+6d}-d-1,
 <p>Together with \(q_\ell-q_0=1\), this is equivalent to the two universal-blocker identities. Finally, every consecutive \(UU\) occurs at the end of the word, so \(DUUD\) does not occur. ∎</p>
 <p>This is a <strong>symbolic sharpness</strong> result, not a claim that every \(W_k\) occurs in the actual Recamán sequence. Any stronger exclusion of long blockers must use additional properties of the visited history.</p>
 
+<h3>Theorem 9.15 — Landing shadows and future gateway protection windows</h3>
+<p>At any index \(j\ge1\) with \(q_j=0\), write \(a_j=x\). Since \(0\le x&lt;j\), the next subtraction candidate is negative, so the following addition is forced:</p>
+<div class="math">\[\boxed{a_{j+1}=j+x+1.}\]</div>
+<p>Define the <strong>landing shadow</strong></p>
+<div class="math">\[\boxed{S_j=j+a_j\qquad(q_j=0).}\]</div>
+<p>For a later \(q=2,L=g\) gateway at index \(N&gt;j+1\), the subtraction target is \(N+g+2\). Therefore the earlier landing guarantees that this gateway is blocked whenever</p>
+<div class="math">\[\boxed{S_j=N+g+1.}\]</div>
+<p>More generally, suppose \(q_{j_0}=0\), \(a_{j_0}=A\), and the next \(2t\) steps form \(t\) complete \(UD\) cycles between quotients zero and one. The landing shadows at indices \(j_0+2k\), \(0\le k&lt;t\), are consecutive:</p>
+<div class="math">\[\boxed{S_{j_0+2k}=j_0+A+k.}\]</div>
+<p>Consequently the block automatically protects every <em>later</em> \(q=2,L=g\) gateway whose index lies in the \(t\)-integer interval</p>
+<div class="math">\[\boxed{
+j_0+A-g-1\ \le N\le\ j_0+A+t-g-2,
+}\]</div>
+<p>provided the gateway occurs after the block has completed.</p>
+<p class="proof"><strong>Proof.</strong> At a \(q=0\) state \(a_j=x&lt;j\), so the proposed subtraction \(x-(j+1)\) is negative and the next value equals \(j+x+1=S_j+1\). A \(q=2,L=g\) gateway at \(N\) proposes \(N+g+2\); equality with the earlier upper value is exactly \(S_j=N+g+1\), hence forces an addition.</p>
+<p>During a complete \(UD\) cycle from the lower state, the lower value decreases by one and the index increases by two. Thus \(a_{j_0+2k}=A-k\), giving \(S_{j_0+2k}=j_0+A+k\). The associated forced additions visit all integers in \([j_0+A+1,j_0+A+t]\). Rewriting \(N+g+2\) as an element of that interval gives the displayed gateway-time window. ∎</p>
+<p>This theorem supplies a concrete sufficient <strong>history-dependent</strong> certificate; it does not assert that all gateways lie inside these windows. Proving such coverage for a specified mature hole—or incorporating the other sources of old blockers—is a possible route to the global renewal theorem.</p>
+
 <h3>Consequence for the renewal problem</h3>
 <p>The global obstruction can now be stated in two equivalent ways.</p>
 <p>At an arbitrary exact threshold \((Q,L=g)\), protection is a finite triangular-ladder certificate. But once \(g+1\) is known to have occurred, every actual future hit must ultimately pass through the single \(q=2\) gateway of Theorem 9.9. Thus permanent omission of a specific mature hole \(g\) is equivalent to perpetual blocking of all later \(q=2,L=g\) states.</p>
