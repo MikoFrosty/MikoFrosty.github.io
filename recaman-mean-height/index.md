@@ -1403,6 +1403,50 @@ Together with \(q_\ell-q_0=1\), this is equivalent to the two universal-blocker 
 
 This is a **symbolic sharpness** result, not a claim that every \(W_k\) occurs in the actual Recamán sequence. Any stronger exclusion of long blockers must use additional properties of the visited history.
 
+### Theorem 9.15 — Landing shadows and future gateway protection windows
+
+At any index \(j\ge1\) with \(q_j=0\), write \(a_j=x\). Since \(0\le x<j\), the next subtraction candidate is negative, so the following addition is forced:
+
+\[
+\boxed{a_{j+1}=j+x+1.}
+\]
+
+Define the **landing shadow**
+
+\[
+\boxed{S_j=j+a_j\qquad(q_j=0).}
+\]
+
+For a later \(q=2,L=g\) gateway at index \(N>j+1\), the subtraction target is \(N+g+2\). Therefore the earlier landing guarantees that this gateway is blocked whenever
+
+\[
+\boxed{S_j=N+g+1.}
+\]
+
+More generally, suppose \(q_{j_0}=0\), \(a_{j_0}=A\), and the next \(2t\) steps form \(t\) complete \(UD\) cycles between quotients zero and one. The landing shadows at indices \(j_0+2k\), \(0\le k<t\), are consecutive:
+
+\[
+\boxed{S_{j_0+2k}=j_0+A+k.}
+\]
+
+Consequently the block automatically protects every *later* \(q=2,L=g\) gateway whose index lies in the \(t\)-integer interval
+
+\[
+\boxed{
+j_0+A-g-1
+\ \le N\le\
+j_0+A+t-g-2,
+}
+\]
+
+provided the gateway occurs after the block has completed.
+
+**Proof.** At a \(q=0\) state \(a_j=x<j\), so the proposed subtraction \(x-(j+1)\) is negative and the next value equals \(j+x+1=S_j+1\). A \(q=2,L=g\) gateway at \(N\) proposes \(N+g+2\); equality with the earlier upper value is exactly \(S_j=N+g+1\), hence forces an addition.
+
+During a complete \(UD\) cycle from the lower state, the lower value decreases by one and the index increases by two. Thus \(a_{j_0+2k}=A-k\), giving \(S_{j_0+2k}=j_0+A+k\). The associated forced additions visit all integers in \([j_0+A+1,j_0+A+t]\). Rewriting \(N+g+2\) as an element of that interval gives the displayed gateway-time window. ∎
+
+This theorem supplies a concrete sufficient **history-dependent** certificate; it does not assert that all gateways lie inside these windows. Proving such coverage for a specified mature hole—or incorporating the other sources of old blockers—is a possible route to the global renewal theorem.
+
 ### Consequence for the renewal problem
 
 The global obstruction can now be stated in two equivalent ways.
