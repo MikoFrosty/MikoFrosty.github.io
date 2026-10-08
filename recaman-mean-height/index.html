@@ -153,6 +153,44 @@ L+1
 <p>The left side is an integer. For odd \(L\), the right side is integral only when \(L\equiv3\pmod4\). ∎</p>
 <p>Thus possible universal-blocker lengths are restricted to \(3,7,11,15,\ldots\). The congruence condition is necessary, not sufficient.</p>
 
+<h3>Corollary 4.4 — Sharp lag bound for non-universal collisions</h3>
+<p>In the non-universal case \(S\ne1\) of Theorem 4.1, the collision lag \(L\) satisfies the stronger bound</p>
+<div class="math">\[
+\boxed{
+L\ge\left\lceil2\sqrt{N+2}-2\right\rceil.
+}
+\]</div>
+<p class="proof"><strong>Proof.</strong> In chronological coordinates let</p>
+<div class="math">\[
+p_k=\sum_{i=1}^k\sigma_i,
+\qquad
+p_0=0,
+\qquad
+p_L=S.
+\]</div>
+<p>Summation by parts in the collision equation gives the exact path-area identity</p>
+<div class="math">\[
+\boxed{
+\sum_{k=0}^{L-1}p_k=N(S-1)-1.
+}
+\]</div>
+<p>For a \(\pm1\) path of length \(L\) from \(0\) to \(S\), the largest possible left-hand side is obtained by taking all upward steps first and all downward steps last. Writing \(U=(L+S)/2\), this maximum is</p>
+<div class="math">\[
+A_{\max}(L,S)
+=
+\frac{L^2+2LS-S^2-2S}{4}.
+\]</div>
+<p>For fixed \(L\), the ratio \((A_{\max}(L,S)+1)/(S-1)\) is decreasing for integers \(S\ge2\). Thus the weakest restriction occurs at \(S=2\), and</p>
+<div class="math">\[
+N
+\le
+\frac{A_{\max}(L,2)+1}{1}
+=
+\frac{L^2+4L-4}{4}.
+\]</div>
+<p>Solving the quadratic inequality gives the result. The case \(S\le0\) cannot satisfy the positive area identity, while integer \(S\ne1\) arising in a collision is therefore covered by \(S\ge2\). ∎</p>
+<p>This improves the coarse \(\sqrt{2N}\)-scale estimate of Theorem 4.1 to the asymptotically sharp path-area scale \(2\sqrt N\) under the fixed endpoint constraint.</p>
+
 <h2>5. Same-segment universality at the critical level q=2</h2>
 <p>At \(q_N=1\), the next subtraction candidate is simply</p>
 <div class="math">\[a_N-(N+1)=r_N-1,\]</div>
@@ -582,7 +620,7 @@ q_k=1+\sum_{i=1}^k\sigma_i
 \sum_{k=1}^{\ell-1}q_k=\ell-2.
 \]</div>
 <p>Since the quotient is nonnegative inside one segment, some internal \(q_k\) must equal zero; otherwise the sum would be at least \(\ell-1\). At that internal \(q=0\) state, the actual Recamán value equals its landing coordinate. The landing coordinate is nonincreasing from \(g+\ell+1\) to \(g\), and it cannot equal \(g\) because \(g\) is still missing. Thus this internal \(q=0\) state visits some integer in \([g+1,g+\ell+1]\). Such a late \(q=0\) value must be a first occurrence. If \(\ell&lt;W\), the entire displayed interval is contained in the already occupied corridor \([g+1,g+W]\), a contradiction. Hence \(\ell\ge W\). Corollary 4.3 supplies the congruence restriction.</p>
-<p>Now suppose the blocker is cross-segment and put \(S=H_N-H_j\). If \(S\ne1\), Theorem 4.1 gives the first displayed lower bound. If \(S=1\), then because \(j\) is in an earlier segment, \(c_j&lt;c_N\). Since \(q_N=2\),</p>
+<p>Now suppose the blocker is cross-segment and put \(S=H_N-H_j\). If \(S\ne1\), Corollary 4.4 gives the stronger bound \(\ell\ge\lceil2\sqrt{N+2}-2\rceil\), which in particular implies the first displayed lower bound. If \(S=1\), then because \(j\) is in an earlier segment, \(c_j&lt;c_N\). Since \(q_N=2\),</p>
 <div class="math">\[
 1=S=(c_N+2)-(c_j+q_j),
 \]</div>
