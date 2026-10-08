@@ -1012,7 +1012,7 @@ Since \(\gamma_{Q,Q-1}=T_Q-T_2=T_Q-3\), the second identity follows. ∎
 
 ### Theorem 9.9 — The \(q=2\) gateway for a previously flanked hole
 
-Fix \(g\), and suppose both that \(g\) is still missing and that \(g+1\) has already occurred. For sufficiently late indices (in particular, for any prospective hit index \(K>g+4\)), a future hit of \(g\) is equivalent to the existence of a state \(n\) with
+Fix \(g\), and let \(J\) be the **first-occurrence index** of \(g+1\). Suppose \(g\) remains missing. For any prospective first-hit index \(K>\max\{J+2,g+5\}\), a hit of \(g\) is equivalent to the existence, at \(n=K-2\), of a state with
 
 \[
 \boxed{q_n=2,\qquad L_n=g}
@@ -1036,13 +1036,13 @@ a_{n+1}=n+g+2=(n+1)+(g+1),
 
 hence \(q_{n+1}=1\), \(r_{n+1}=g+1\), and \(L_{n+1}=g\). Since \(g\) is still missing, the next subtraction is legal and gives \(a_{n+2}=g\).
 
-Conversely, suppose \(a_K=g\) is a future first hit after \(g+1\) has already occurred. Since \(K>g\), the hit is by subtraction, so
+Conversely, suppose \(a_K=g\) is a first hit with \(K>\max\{J+2,g+5\}\). Since \(K>g\), the hit is by subtraction, so
 
 \[
 a_{K-1}=K+g=(K-1)+(g+1),
 \]
 
-and therefore \(q_{K-1}=1\), \(L_{K-1}=g\). The step into this state cannot have been an addition: that would force \(a_{K-2}=g+1\), but any term less than its index can only arise as a legal subtraction endpoint and hence must be new, contradicting the earlier occurrence of \(g+1\). Thus step \(K-1\) was a subtraction. Reversing it gives
+and therefore \(q_{K-1}=1\), \(L_{K-1}=g\). The step into this state cannot have been an addition: that would force \(a_{K-2}=g+1\), but any term less than its index can only arise as a legal subtraction endpoint and hence must be new, contradicting the occurrence of \(g+1\) at index \(J<K-2\). Thus step \(K-1\) was a subtraction. Reversing it gives
 
 \[
 a_{K-2}=2K+g-1=2(K-2)+(g+3),
@@ -1050,7 +1050,9 @@ a_{K-2}=2K+g-1=2(K-2)+(g+3),
 
 so \(q_{K-2}=2\), \(r_{K-2}=g+3\), and \(L_{K-2}=g\). That subtraction was legal, giving the required unblocked gateway. ∎
 
-For \(g=852655\), the value \(g+1=852656\) is already among the values certified occupied by Chaffin's computation. Thus every hypothetical future hit of 852655 must pass through this single \(q=2\) gate.
+**Boundary exception (two-step neighbor completion).** If \(a_J=g+1\) at any index \(J\ge g\) while \(g\) is missing, the next step is forced upward: its proposed subtraction target is \(g-J\le0\) (zero is already occupied). The following proposed subtraction lands exactly on \(g\), so \(a_{J+2}=g\). For example, \(a_{129}=5\), \(a_{130}=135\), \(a_{131}=4\); the late hit of \(4\) is **not** preceded by a \(q=2\) gateway. This is why Theorem 9.9 requires \(J<K-2\), not merely that \(g+1\) occurred before the hit.
+
+For \(g=852655\), \(852656\) first occurs at index \(246755\), long before Chaffin's \(10^{612}\)-term horizon. Thus every hypothetical post-cutoff hit of 852655 must pass through the \(q=2\) gate described above.
 
 ### Theorem 9.10 — How old a \(q=2\) gateway blocker must be
 
@@ -1507,7 +1509,7 @@ The global obstruction can now be stated in two equivalent ways.
 
 At an arbitrary exact threshold \((Q,L=g)\), protection is a finite triangular-ladder certificate. But once \(g+1\) is known to have occurred, every actual future hit must ultimately pass through the single \(q=2\) gateway of Theorem 9.9. Thus permanent omission of a specific mature hole \(g\) is equivalent to perpetual blocking of all later \(q=2,L=g\) states.
 
-For 852655, the surviving blocker mechanisms are now narrower still. A same-segment blocker wholly beyond the known horizon must either extend beyond the entire \(2^{32}\) hole dataset, with lag exceeding \(4.294\times10^9\), or a cross-segment blocker must reach far back according to Theorem 9.10. This still does not prove the gateway is always blocked—or that an exact gateway ever occurs—but it eliminates the whole finite-width universal-blocker regime covered by the published hole data.
+For 852655, the surviving blocker mechanisms are now narrower still. A same-segment blocker wholly beyond the known horizon must either extend beyond the entire \(2^{32}\) hole dataset, with lag exceeding \(4.294\times10^9\), or a cross-segment blocker must reach far back according to Theorem 9.10. This still does not prove the gateway is always blocked—or that an exact gateway ever occurs—but it excludes one class of *possible blockers* if the gateway occurs. Importantly, excluding blockers makes a gateway **more dangerous**, not less: to prove omission one must show that the gateway never occurs or that some blocker necessarily exists.
 
 ## 10. Open problems
 
