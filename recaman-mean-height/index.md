@@ -1277,7 +1277,7 @@ Then
 \boxed{
 \ell
 \ge
-\sqrt{,4Nd+2d^2+6d+2,}-d-1.
+\sqrt{4Nd+2d^2+6d}-d-1.
 }
 \]
 
@@ -1285,7 +1285,7 @@ In particular,
 
 \[
 \boxed{
-\ell\ge\sqrt{4N+10}-2.
+\ell\ge\sqrt{4N+8}-2.
 }
 \]
 
@@ -1346,7 +1346,7 @@ Substitution and simplification yield
 \[
 (\ell+d+1)^2
 \ge
-4Nd+2d^2+6d+2,
+4Nd+2d^2+6d,
 \]
 
 which proves the first bound.
@@ -1354,16 +1354,16 @@ which proves the first bound.
 For fixed \(N\), the right-hand expression after solving for \(\ell\),
 
 \[
-f(d)=\sqrt{4Nd+2d^2+6d+2}-d-1,
+f(d)=\sqrt{4Nd+2d^2+6d}-d-1,
 \]
 
 is increasing for \(d>0\), because
 
 \[
-(2N+2d+3)^2-(4Nd+2d^2+6d+2)>0.
+(2N+2d+3)^2-(4Nd+2d^2+6d)>0.
 \]
 
-Hence its minimum for integer \(d\ge1\) occurs at \(d=1\), giving \(\ell\ge\sqrt{4N+10}-2\). ∎
+Hence its minimum for integer \(d\ge1\) occurs at \(d=1\), giving \(\ell\ge\sqrt{4N+8}-2\). ∎
 
 For every prospective gateway far beyond Chaffin's \(10^{612}\) horizon, the half-index alternative of Theorem 9.10 is much larger than this bound. Thus every cross-segment blocker there must reach back at least approximately
 
@@ -1373,135 +1373,35 @@ For every prospective gateway far beyond Chaffin's \(10^{612}\) horizon, the hal
 
 indices.
 
-### Proposition 9.11 — Universal blockers force quarter-density of fresh landings
+### Proposition 9.14 — Sharpness of quarter-density for symbolic blockers
 
-Consider a same-segment universal blocker of length \(\ell\) running from quotient one to quotient two. Let
+The quarter-density lower bound of Theorem 9.11 cannot be improved using only the universal-blocker equations, nonnegative quotient paths, and the forbidden-word restriction \(DUUD\).
 
-\[
-q_0=1,qquad
-q_k=1+\sum_{i=1}^k\sigma_i
-\qquad(1\le k\le\ell),
-\]
-
-so \(q_\ell=2\). Then
+For every integer \(k\ge0\), consider the sign word
 
 \[
-\boxed{
-\sum_{k=1}^{\ell-1}q_k=\ell-2.
-}
+\boxed{W_k=(UD)^k\,D\,(UD)^k\,UU.}
 \]
 
-Moreover, the number \(Z\) of internal indices \(k\in\{1,\ldots,\ell-1\}\) with \(q_k=0\) satisfies
+Its length is \(\ell=4k+3\). Starting from \(q_0=1\), the quotient path is nonnegative and ends at \(q_\ell=2\). Among its internal states, exactly \(k+1=(\ell+1)/4\) have \(q=0\). Also,
 
 \[
-\boxed{
-Z\ge\frac{\ell+1}{4}.
-}
+\sum_{i=1}^{\ell}\sigma_i=1,\qquad
+\sum_{i=1}^{\ell}i\sigma_i=\ell+1.
 \]
 
-At each such state the actual Recamán value is a late first occurrence. Thus a universal blocker of length \(\ell\) necessarily creates at least \((\ell+1)/4\) distinct fresh landing values during the block.
+Consequently \(W_k\) is a universal-blocker word, and it contains no occurrence of \(DUUD\).
 
-**Proof.** Summing
+**Proof.** The first \((UD)^k\) oscillates between quotients \(1\) and \(2\). The central \(D\) reaches quotient \(0\); the second \((UD)^k\) oscillates between \(0\) and \(1\), returning to \(0\) after each \(UD\) pair. The final \(UU\) ends at quotient \(2\). There are \(k+1\) internal zero-quotient states, \(k\) quotient-two states, and \(2k+1\) quotient-one states, so
 
 \[
-q_k=1+\sum_{i=1}^k\sigma_i
+\sum_{i=1}^{\ell-1}q_i
+=2k+(2k+1)=4k+1=\ell-2.
 \]
 
-over \(1\le k\le\ell-1\) gives
+Together with \(q_\ell-q_0=1\), this is equivalent to the two universal-blocker identities. Finally, every consecutive \(UU\) occurs at the end of the word, so \(DUUD\) does not occur. ∎
 
-\[
-\sum_{k=1}^{\ell-1}q_k
-=
-(\ell-1)
-+
-\sum_{i=1}^{\ell-1}(\ell-i)\sigma_i.
-\]
-
-Using
-
-\[
-\sum_{i=1}^{\ell}\sigma_i=1,
-\qquad
-\sum_{i=1}^{\ell}i\sigma_i=\ell+1,
-\]
-
-the weighted suffix sum equals \(-1\), proving the first identity.
-
-By Corollary 4.3, \(\ell\equiv3\pmod4\). Put
-
-\[
-m=\frac{\ell-1}{2}.
-\]
-
-Because \(q_0=1\) and every step changes \(q\) by \(\pm1\), the internal quotients at odd positions are even and those at even positions are odd. There are \(m\) positions of each parity. Every even-position quotient is at least one; every nonzero odd-position quotient is at least two. If \(Z\) odd-position quotients are zero, then
-
-\[
-\ell-2
-=
-\sum_{k=1}^{\ell-1}q_k
-\ge
-m+2(m-Z).
-\]
-
-Since \(\ell=2m+1\), this rearranges to
-
-\[
-Z\ge\frac{m+1}{2}
-=
-\frac{\ell+1}{4}.
-\]
-
-At an internal \(q=0\) state, \(a_n=r_n<n\), so the value can only have been reached by a legal subtraction and is therefore new. Between two such states a forced addition from \(q=0\) lowers \(L\), so the landing values are distinct. ∎
-
-### Corollary 9.12 — Hole-density exclusion below \(2^{32}\)
-
-Let
-
-\[
-g=852655
-\]
-
-and let the cutoff be Chaffin's computation through \(10^{612}\) terms. Consider a future same-segment gateway blocker lying entirely after that cutoff. If its lag \(\ell\) satisfies
-
-\[
-77403\le\ell\le2^{32}-g-1=4294114639,
-\]
-
-then such a blocker is impossible.
-
-**Reason.** By Theorem 9.10, its internal \(q=0\) landing values lie in
-
-\[
-[g+1,g+\ell+1].
-\]
-
-Because the block occurs after the cutoff, every one of these fresh landing values must have been absent at the cutoff and hence must appear in Chaffin's published hole list. Proposition 9.11 requires at least
-
-\[
-\frac{\ell+1}{4}
-\]
-
-such holes.
-
-A direct expansion of Chaffin's compressed list of holes below \(2^{32}\) shows that, for every \(\ell\) in the displayed range, the number of listed holes in \([g+1,g+\ell+1]\) is strictly smaller than \((\ell+1)/4\). The inequality is not close: over this entire range, the largest observed ratio
-
-\[
-\frac{4\,H(\ell)}{\ell+1},
-\]
-
-where \(H(\ell)\) counts listed holes in the interval, is below \(0.00146\).
-
-Therefore no post-cutoff same-segment universal blocker whose landing interval remains below \(2^{32}\) can block the \(q=2\) gateway.
-
-Consequently, once a gateway's entire mean-height segment lies after the \(10^{612}\) cutoff, any same-segment blocker must satisfy
-
-\[
-\boxed{
-\ell>4294114639.
-}
-\]
-
-This is a data-assisted exclusion, not a purely deductive theorem about all future values: it uses the published finite hole list through the cutoff.
+This is a **symbolic sharpness** result, not a claim that every \(W_k\) occurs in the actual Recamán sequence. Any stronger exclusion of long blockers must use additional properties of the visited history.
 
 ### Consequence for the renewal problem
 
